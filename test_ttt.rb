@@ -1,0 +1,16 @@
+require "minitest/autorun"
+require_relative "ttt.rb"
+
+class Test_ttt < Minitest::Test
+
+    def test_1_and_1
+        assert_equal(1,1)
+    end
+
+    def test_update_board
+        board = {"1"=> "","2" => "","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "", "9" => "",}
+        player = "x"
+        choice = 2
+        assert_equal({"1"=> "","2" => "x","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "", "9" => "",},board_update(board,player,choice))
+    end
+end
