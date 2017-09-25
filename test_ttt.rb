@@ -26,4 +26,9 @@ class Test_ttt < Minitest::Test
         assert_equal("x",change_players(player))
     end
 
+    def test_change_players_x
+        player = "x"
+        assert_equal("o",change_players(player))
+    end
+
 end

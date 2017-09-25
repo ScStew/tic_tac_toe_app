@@ -5,7 +5,7 @@ end
 
 def change_players(player)
     if player == "x"
-         "o"
+        "o"
     else
        "x"
     end
