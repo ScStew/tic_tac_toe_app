@@ -20,4 +20,10 @@ class Test_ttt < Minitest::Test
         choice = "8"
         assert_equal({"1"=> "","2" => "","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "o", "9" => "",},board_update(board,player,choice))     
     end
+
+    def test_change_players
+        player = 'o'
+        assert_equal("x",change_players(player))
+    end
+
 end
