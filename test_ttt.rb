@@ -10,7 +10,14 @@ class Test_ttt < Minitest::Test
     def test_update_board
         board = {"1"=> "","2" => "","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "", "9" => "",}
         player = "x"
-        choice = 2
+        choice = "2"
         assert_equal({"1"=> "","2" => "x","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "", "9" => "",},board_update(board,player,choice))
+    end
+
+    def test_update_board
+        board = board = {"1"=> "","2" => "","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "", "9" => "",}
+        player = "o"
+        choice = "8"
+        assert_equal({"1"=> "","2" => "","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "o", "9" => "",},board_update(board,player,choice))     
     end
 end

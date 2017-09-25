@@ -1,3 +1,4 @@
-def tic_tac_toe
-
+def board_update(board,player,choice)
+    board[choice] = player
+    board
 end
