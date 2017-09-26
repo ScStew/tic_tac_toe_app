@@ -42,16 +42,21 @@ def winner(board)
     answer = []
     count = 0
     until count == 9 do 
+        p board["#{count+1}"] + board["#{count+2}"] + board["#{count+3}"] + "R"
         if board["#{count+1}"] + "," + board["#{count+2}"] == board["#{count+3}"] + "," +  board["#{count+3}"]
                 answer << true
-         else
-            if board["#{(count/3) + 1}"] + "," + board["#{(count/3) + 4}"] == board["#{(count/3) +7}"] + "," + board["#{(count/3) + 7}"]
-                answer << true
-            else
-               answer << false       
-            end    
         end
+        p board["#{(count/3)+1}"] +  board["#{(count/3) + 4}"] + board["#{(count/3) +7}"] + "C"   
+         if board["#{(count/3)+1}"] + "," + board["#{(count/3) + 4}"] == board["#{(count/3) +7}"] + "," + board["#{(count/3) + 7}"]
+            answer << true
+        end
+        if count < 6
+            p board["#{(count*2)%4 + 1}"] + board["5"] + board["#{(count/3)*-2 + 9}"] + "D"
+            if board["#{(count*2)%4 + 1}"] + "," + board["5"] == board["#{(count/3)*-2 + 9}"] + "," + board["#{(count/3)*-2 + 7}"]    
+                answer << true
+        end
+            end
         count += 3
     end        
-    answer.include?(true)
+     answer.include?(true)
 end
