@@ -30,14 +30,14 @@ def board_checker?(board)
         end
     end
     if arr.include?("match")
-        false
-    else
         true
+    else
+        false
     end
    
 end
 
-def key_check(choice)
+def key_check?(choice)
     keys = (1..9).to_a
     if keys.include?(choice.to_i)
         true
@@ -46,7 +46,7 @@ def key_check(choice)
     end
 end
 
-def winner(board)
+def winner?(board)
     answer = []
     count = 0
     until count == 9 do 
@@ -68,3 +68,5 @@ def winner(board)
     end        
      answer.include?(true)
 end
+
+
