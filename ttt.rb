@@ -37,3 +37,21 @@ def key_check(choice)
         false
     end
 end
+
+def winner(board)
+    answer = []
+    count = 0
+    until count == 9 do 
+        if board["#{count+1}"] + "," + board["#{count+2}"] == board["#{count+3}"] + "," +  board["#{count+3}"]
+                answer << true
+         else
+            if board["#{(count/3) + 1}"] + "," + board["#{(count/3) + 4}"] == board["#{(count/3) +7}"] + "," + board["#{(count/3) + 7}"]
+                answer << true
+            else
+               answer << false       
+            end    
+        end
+        count += 3
+    end        
+    answer.include?(true)
+end

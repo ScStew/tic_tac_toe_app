@@ -70,4 +70,13 @@ class Test_ttt < Minitest::Test
         assert_equal(true,key_check(choice))
     end
 
+    def test_winning_player_row_1
+        board = {"1"=> "x","2" => "x","3"=> "x", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9",}
+        assert_equal(true,winner(board))
+    end
+
+    def test_winning_player_column_1
+        board = {"1"=> "x","2" => "2","3"=> "3", "4"=> "x", "5" => "5" ,"6" => "6", "7" => "x","8" => "8", "9" => "9",}
+        assert_equal(true,winner(board))
+    end
 end
