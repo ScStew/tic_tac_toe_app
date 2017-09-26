@@ -12,7 +12,7 @@ def change_players(player)
 end
 
 def valid_spot?(board,choice)
-    if board[choice] == ""
+    if board[choice] == choice
         true
     else
         false
@@ -21,12 +21,20 @@ def valid_spot?(board,choice)
 end
 
 def board_checker?(board)
-    val_arr = board.values
-    unless val_arr.include?("")
-        true
-    else
-        false
+    arr = []
+    board.each_pair do |key,value|
+        if key == value
+        arr << "match"
+        else
+        arr  <<"no_match"
+        end
     end
+    if arr.include?("match")
+        false
+    else
+        true
+    end
+   
 end
 
 def key_check(choice)

@@ -32,30 +32,30 @@ class Test_ttt < Minitest::Test
     end
 
     def test_valid_spot
-        board = {"1"=> "","2" => "","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "", "9" => "",}
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9",}
         choice = "2"
         assert_equal(true,valid_spot?(board,choice))
     end
     
     def test_valid_spot_false
-        board = {"1"=> "","2" => "o","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "", "9" => "",}
+        board = {"1"=> "1","2" => "o","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9",}
         choice = "2"
         assert_equal(false,valid_spot?(board,choice))
     end
 
     def test_valid_spot_6
-        board = {"1"=> "","2" => "","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "", "9" => "o",}
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "o",}
         choice = "6"
         assert_equal(true,valid_spot?(board,choice))
     end
 
     def test_full_board_false
-        board = {"1"=> "","2" => "","3"=> "", "4"=> "", "5" => "" ,"6" => "", "7" => "","8" => "", "9" => "o",}
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "o",}
         assert_equal(false,board_checker?(board))
     end
 
     def test_full_board_true
-        board = {"1"=> "o","2" => "x","3"=> "o", "4"=> "x", "5" => "o" ,"6" => "x", "7" => "0","8" => "x", "9" => "o",} 
+        board = {"1"=> "o","2" => "x","3"=> "o", "4"=> "x", "5" => "o" ,"6" => "x", "7" => "o","8" => "x", "9" => "o",} 
         assert_equal(true,board_checker?(board))
 
     end
