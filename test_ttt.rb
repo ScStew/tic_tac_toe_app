@@ -80,8 +80,39 @@ class Test_ttt < Minitest::Test
         assert_equal(true,winner(board))
     end
 
+    def test_winning_player_D_1
+        board = {"1"=> "x","2" => "2","3"=> "3", "4"=> "4", "5" => "x" ,"6" => "6", "7" => "7","8" => "8", "9" => "x",}
+        assert_equal(true,winner(board))
+    end
+
+    def test_winnig_player_row_2
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "x", "5" => "x" ,"6" => "x", "7" => "7","8" => "8", "9" => "9",}
+        assert_equal(true,winner(board))
+    end
+
+    def test_winning_player_column_2
+        board = {"1"=> "1","2" => "x","3"=> "3", "4"=> "4", "5" => "x" ,"6" => "6", "7" => "7","8" => "x", "9" => "9",}
+        assert_equal(true,winner(board))
+    end
+
+    def test_winning_player_d_2
+        board = {"1"=> "1","2" => "2","3"=> "x", "4"=> "4", "5" => "x" ,"6" => "6", "7" => "x","8" => "8", "9" => "9",}
+        assert_equal(true,winner(board))
+    end
+
+    def test_winning_player_row_3
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "x","8" => "x", "9" => "x",}
+        assert_equal(true,winner(board))
+    end
+
+    def test_winning_player_colimn_3
+        board = {"1"=> "1","2" => "2","3"=> "x", "4"=> "4", "5" => "5" ,"6" => "x", "7" => "7","8" => "8", "9" => "x",}
+        assert_equal(true,winner(board))
+    end
+
     def test_winner_empty_board
         board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9",}
         assert_equal(false,winner(board))
     end
+
 end
