@@ -60,8 +60,14 @@ class Test_ttt < Minitest::Test
 
     end
 
-    def test_valid_key_entry
-        choice = 10
+    def test_invalid_key_entry
+        choice = "10"
         assert_equal(false,key_check(choice))
     end
+
+    def test_valid_key_entry
+        choice = "2"
+        assert_equal(true,key_check(choice))
+    end
+
 end

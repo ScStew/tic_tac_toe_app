@@ -30,8 +30,8 @@ def board_checker?(board)
 end
 
 def key_check(choice)
-    keys = [1..9]
-    unless keys.include?(choice.to_i)
+    keys = (1..9).to_a
+    if keys.include?(choice.to_i)
         true
     else
         false
