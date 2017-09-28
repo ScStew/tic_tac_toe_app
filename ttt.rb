@@ -50,16 +50,19 @@ def winner?(board)
     answer = []
     count = 0
     until count == 9 do 
-        # p board["#{count+1}"] + board["#{count+2}"] + board["#{count+3}"] + "R"
+        #  p b
+        
+        
+        board["#{count+1}"] + board["#{count+2}"] + board["#{count+3}"] + "R"
         if board["#{count+1}"] + "," + board["#{count+2}"] == board["#{count+3}"] + "," +  board["#{count+3}"]
                 answer << true
         end
-        # p board["#{(count/3)+1}"] +  board["#{(count/3) + 4}"] + board["#{(count/3) +7}"] + "C"   
+        #  p board["#{(count/3)+1}"] +  board["#{(count/3) + 4}"] + board["#{(count/3) +7}"] + "C"   
          if board["#{(count/3)+1}"] + "," + board["#{(count/3) + 4}"] == board["#{(count/3) +7}"] + "," + board["#{(count/3) + 7}"]
             answer << true
         end
         if count < 6
-            # p board["#{(count*2)%4 + 1}"] + board["5"] + board["#{(count/3)*-2 + 9}"] + "D"
+            #  p board["#{(count*2)%4 + 1}"] + board["5"] + board["#{(count/3)*-2 + 9}"] + "D"
             if board["#{(count*2)%4 + 1}"] + "," + board["5"] == board["#{(count/3)*-2 + 9}"] + "," + board["#{(count/3)*-2 + 9}"]    
                 answer << true
         end

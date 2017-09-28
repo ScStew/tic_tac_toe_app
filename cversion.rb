@@ -34,6 +34,14 @@ def game
         end 
 
    end
+   if game == "end"
+    p "#{board['7']}|#{board['8']}|#{board['9']}"
+    p "- - -"
+    p "#{board['4']}|#{board['5']}|#{board['6']}"
+    p "- - -"
+    p "#{board['1']}|#{board['2']}|#{board['3']}"
+   end
+
 end
 
 

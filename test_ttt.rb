@@ -49,70 +49,70 @@ class Test_ttt < Minitest::Test
         assert_equal(true,valid_spot?(board,choice))
     end
 
-    def test_full_board_false
+    def test_full_board_true
         board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "o",}
-        assert_equal(false,board_checker?(board))
+        assert_equal(true,board_checker?(board))
     end
 
-    def test_full_board_true
+    def test_full_board_false
         board = {"1"=> "o","2" => "x","3"=> "o", "4"=> "x", "5" => "o" ,"6" => "x", "7" => "o","8" => "x", "9" => "o",} 
-        assert_equal(true,board_checker?(board))
+        assert_equal(false,board_checker?(board))
 
     end
 
     def test_invalid_key_entry
         choice = "10"
-        assert_equal(false,key_check(choice))
+        assert_equal(false,key_check?(choice))
     end
 
     def test_valid_key_entry
         choice = "2"
-        assert_equal(true,key_check(choice))
+        assert_equal(true,key_check?(choice))
     end
 
     def test_winning_player_row_1
         board = {"1"=> "x","2" => "x","3"=> "x", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9",}
-        assert_equal(true,winner(board))
+        assert_equal(true,winner?(board))
     end
 
     def test_winning_player_column_1
         board = {"1"=> "x","2" => "2","3"=> "3", "4"=> "x", "5" => "5" ,"6" => "6", "7" => "x","8" => "8", "9" => "9",}
-        assert_equal(true,winner(board))
+        assert_equal(true,winner?(board))
     end
 
     def test_winning_player_D_1
         board = {"1"=> "x","2" => "2","3"=> "3", "4"=> "4", "5" => "x" ,"6" => "6", "7" => "7","8" => "8", "9" => "x",}
-        assert_equal(true,winner(board))
+        assert_equal(true,winner?(board))
     end
 
     def test_winnig_player_row_2
         board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "x", "5" => "x" ,"6" => "x", "7" => "7","8" => "8", "9" => "9",}
-        assert_equal(true,winner(board))
+        assert_equal(true,winner?(board))
     end
 
     def test_winning_player_column_2
         board = {"1"=> "1","2" => "x","3"=> "3", "4"=> "4", "5" => "x" ,"6" => "6", "7" => "7","8" => "x", "9" => "9",}
-        assert_equal(true,winner(board))
+        assert_equal(true,winner?(board))
     end
 
     def test_winning_player_d_2
         board = {"1"=> "1","2" => "2","3"=> "x", "4"=> "4", "5" => "x" ,"6" => "6", "7" => "x","8" => "8", "9" => "9",}
-        assert_equal(true,winner(board))
+        assert_equal(true,winner?(board))
     end
 
     def test_winning_player_row_3
         board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "x","8" => "x", "9" => "x",}
-        assert_equal(true,winner(board))
+        assert_equal(true,winner?(board))
     end
 
     def test_winning_player_colimn_3
         board = {"1"=> "1","2" => "2","3"=> "x", "4"=> "4", "5" => "5" ,"6" => "x", "7" => "7","8" => "8", "9" => "x",}
-        assert_equal(true,winner(board))
+        assert_equal(true,winner?(board))
     end
 
     def test_winner_empty_board
         board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9",}
-        assert_equal(false,winner(board))
+        assert_equal(false,winner?(board))
     end
 
 end
