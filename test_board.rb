@@ -21,4 +21,11 @@ class Test_board < Minitest::Test
         choice = "3"
         assert_equal(true,board.valid_spot?(choice))
     end
+    def test_valid_spot_invalid
+        board = Board.new
+        choice = "3"
+        player = "x"
+        board.update(player,choice)
+        assert_equal(false,board.valid_spot?(choice))
+    end
 end
