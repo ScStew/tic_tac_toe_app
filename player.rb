@@ -1,6 +1,6 @@
 class Player
     
-    attr_reader :player
+    attr_accessor :player
 
     def initialize 
         @player = "x"

@@ -2,6 +2,7 @@ require_relative "board.rb"
 require_relative "player.rb"
 require_relative "ran_ai.rb"
 require_relative "seq_ai.rb"
+require_relative "hard_ai.rb"
 
 
 def game
@@ -40,9 +41,6 @@ def game
             p "player #{player.player}'s turn'"
             if player.player == "x"
                 choice = gets.chomp
-                if board.firstmove == ""
-                    board.firstmove = choice
-                end
             elsif ai != "dumb"
                 choice = ai.move(board.game_board)
             else

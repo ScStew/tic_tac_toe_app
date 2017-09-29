@@ -1,9 +1,13 @@
 class Board
 
-    attr_reader :game_board, :firstmove
+    attr_accessor :game_board, :firstmove
     def initialize
         @game_board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"}
-        @firstmove = ""
+        @firstmove = "start"
+    end
+
+    def firstmove_select(choice)
+        @firstmove = choice
     end
 
     def print
