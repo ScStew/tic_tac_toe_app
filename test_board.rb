@@ -34,10 +34,14 @@ class Test_board < Minitest::Test
         player = "x"
         choice = 1
         9.times do
-        board.update(player,choice.to_i)
+        board.update(player,choice.to_s)
         choice += 1
         end
-        assert_equal(true,board.board_not_full?)
+        assert_equal(false,board.board_not_full?) 
+    end
 
+    def test_not_full_board
+        board = Board.new
+        assert_equal(true,board.board_not_full?)
     end
 end
