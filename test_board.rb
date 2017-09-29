@@ -44,4 +44,34 @@ class Test_board < Minitest::Test
         board = Board.new
         assert_equal(true,board.board_not_full?)
     end
+
+    def test_winning_row_1
+        board = Board.new
+        player = "x"
+        choice = 1
+        board.update(player,"#{choice}")
+        board.update(player,"#{choice+1}")
+        board.update(player,"#{choice+2}")
+        assert_equal(true,board.winner?)
+    end
+
+    def test_winning_row_2
+        board = Board.new
+        player = "x"
+        choice = 1
+        board.update(player,"#{choice+3}")
+        board.update(player,"#{choice+4}")
+        board.update(player,"#{choice+5}")
+        assert_equal(true,board.winner?)
+    end
+
+    def test_winning_row_3
+        board = Board.new
+        player = "x"
+        choice = 1
+        board.update(player,"#{choice+6}")
+        board.update(player,"#{choice+7}")
+        board.update(player,"#{choice+8}")
+        assert_equal(true,board.winner?)
+    end
 end
