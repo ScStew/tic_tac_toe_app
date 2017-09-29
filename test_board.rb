@@ -104,4 +104,25 @@ class Test_board < Minitest::Test
         board.update(player,"#{choice+8}")
         assert_equal(true,board.winner?)
     end
+
+    def test_winning_d_1
+        board = Board.new
+        player = "x"
+        choice = 1
+        board.update(player,"#{choice}")
+        board.update(player,"#{choice+4}")
+        board.update(player,"#{choice+8}")
+        assert_equal(true,board.winner?)
+    end
+
+    def test_winning_d_2
+        board = Board.new
+        player = "x"
+        choice = 1
+        board.update(player,"#{choice+2}")
+        board.update(player,"#{choice+4}")
+        board.update(player,"#{choice+6}")
+        assert_equal(true,board.winner?)
+    end
+
 end
