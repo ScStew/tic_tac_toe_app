@@ -125,4 +125,15 @@ class Test_board < Minitest::Test
         assert_equal(true,board.winner?)
     end
 
+    def test_valid_key_true
+        board = Board.new
+        choice = "2"
+        assert_equal(true,board.key_check?(choice))
+    end
+
+    def test_valid_key_false
+        board = Board.new
+        choice = "a"
+        assert_equal(false,board.key_check?(choice))
+    end
 end
