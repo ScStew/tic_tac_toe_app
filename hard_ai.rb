@@ -3,7 +3,7 @@ require_relative "player.rb"
 class Hard_ai
 
     def move(board)
-        board_class = Board.new
+        board = Board.new
         player - player.new
         open_moves = []
         board.each_pair do |key, value|
@@ -18,7 +18,9 @@ class Hard_ai
             if board.winner? == true
                 choice << possible_choice
             end
-        board.update(possible_choice,possible_choice)
+        player.change_players
+        board.update(player,possible_choice)
+        if 
         end
 
         
