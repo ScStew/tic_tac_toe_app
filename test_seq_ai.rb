@@ -14,4 +14,10 @@ class Test_seq_ai < Minitest::Test
        board = {"1"=> "x","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9",}
         assert_equal("5",seq_ai.move(board))
     end
+
+    def test_move_3
+        seq_ai = Sequence_ai.new
+        board = {"1"=> "x","2" => "2","3"=> "3", "4"=> "4", "5" => "x" ,"6" => "6", "7" => "7","8" => "8", "9" => "9",}
+        assert_equal("9",seq_ai.move(board))
+    end
 end
