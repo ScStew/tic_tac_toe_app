@@ -5,6 +5,15 @@ class Board
         @game_board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"}
     end
 
+    def print
+        p "#{game_board['7']}|#{game_board['8']}|#{game_board['9']}"
+        p "- - -"
+        p "#{game_board['4']}|#{game_board['5']}|#{game_board['6']}"
+        p "- - -"
+        p "#{game_board['1']}|#{game_board['2']}|#{game_board['3']}"
+        
+    end
+
     def update(player,choice)
         @game_board[choice] = player
         @game_board
@@ -28,11 +37,8 @@ class Board
             arr  <<"no_match"
             end
         end
-        if arr.include?("match")
-            true
-        else
-            false
-        end
+     arr.include?("match")
+
        
     end
     
@@ -70,5 +76,5 @@ class Board
             false
         end
     end
-    
+
 end
