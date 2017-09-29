@@ -12,29 +12,36 @@ def game
     p "How Many Players: 1 or 2"
     num = gets.chomp
     if num == "1"
-       
-        until ai != "dumb" do
-        p "how hard do you want it to be: 1:2"
-        diff = gets.chomp
-           
-            if diff == "1"
-                ai = Sequence_ai.new
-            elsif diff == "2"
-                ai = Random_ai
-            else
-                p "not a valid choice"
-            end
         
+        until ai != "dumb" do
+            p "how hard do you want it to be: 1:2"
+                diff = gets.chomp
+                
+                if diff == "2"
+                    ai = Sequence_ai.new
+                elsif diff == "1"
+                    ai = Random_ai.new
+                else
+                    p "not a valid choice"
+                end
+                
         end
+        elsif num == "2"
 
-        until game == "end"
+        else
+            p "Not a valid Entry"
+        end
+            
+            until game == "end"
             choice = ""
             board.print
-            p "pick a number"
+            p "player #{player.player}'s turn'"
             if player.player == "x"
                 choice = gets.chomp
-            else 
+            elsif ai != "dumb"
                 choice = ai.move(board.game_board)
+            else
+                choice = gets.chomp
             end
                 if board.key_check?(choice) == true
                     if board.valid_spot?(choice) == true
@@ -42,12 +49,14 @@ def game
                         if board.winner? == true
                             p "player #{player.player} is the winner"
                             game = "end"
+                            board.print
                         else
                             if board.board_not_full? == true
                                 player.change_players
                             else
                             p "TIE GAME"
                             game = "end"
+                            board.print
                             end
                         end
                     else
@@ -58,11 +67,6 @@ def game
                 end
         end
 
-     elsif num == "2"
-
-    else
-        p "Not a valid Entry"
-    end
 end
 
 game

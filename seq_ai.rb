@@ -1,7 +1,6 @@
 class Sequence_ai
    
-   
-    def move(board)
+   def move(board)
     pick = ""
     choice = ["1","5","9","4","6","2","7","9","8"]
     count = 0
