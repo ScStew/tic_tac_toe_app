@@ -14,13 +14,15 @@ def game
     if num == "1"
         
         until ai != "dumb" do
-            p "how hard do you want it to be: 1:2"
+            p "how hard do you want it to be: 1:2:3"
                 diff = gets.chomp
                 
                 if diff == "2"
                     ai = Sequence_ai.new
                 elsif diff == "1"
                     ai = Random_ai.new
+                elsif diff == "3"
+                    ai = Hard_ai.new
                 else
                     p "not a valid choice"
                 end
