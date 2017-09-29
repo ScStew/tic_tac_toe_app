@@ -38,6 +38,9 @@ def game
             p "player #{player.player}'s turn'"
             if player.player == "x"
                 choice = gets.chomp
+                if board.firstmove == ""
+                    board.firstmove = choice
+                end
             elsif ai != "dumb"
                 choice = ai.move(board.game_board)
             else
