@@ -19,4 +19,20 @@ class Board
     
     end
     
+    def board_not_full?
+        arr = []
+        @game_board.each_pair do |key,value|
+            if key == value
+            arr << "match"
+            else
+            arr  <<"no_match"
+            end
+        end
+        if arr.include?("match")
+            true
+        else
+            false
+        end
+       
+    end
 end
