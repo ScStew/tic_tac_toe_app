@@ -52,10 +52,10 @@ class Board
         answer = []
         count = 0
         until count == 9 do 
-            #  p b
+             
             
             
-            @game_board["#{count+1}"] + @game_board["#{count+2}"] + @game_board["#{count+3}"] + "R"
+            # p @game_board["#{count+1}"] + @game_board["#{count+2}"] + @game_board["#{count+3}"] + "R"
             if @game_board["#{count+1}"] + "," + @game_board["#{count+2}"] == @game_board["#{count+3}"] + "," +  @game_board["#{count+3}"]
                     answer << true
             end
@@ -67,11 +67,12 @@ class Board
                 #  p @game_board["#{(count*2)%4 + 1}"] + @game_board["5"] + @game_board["#{(count/3)*-2 + 9}"] + "D"
                 if @game_board["#{(count*2)%4 + 1}"] + "," + @game_board["5"] == @game_board["#{(count/3)*-2 + 9}"] + "," + @game_board["#{(count/3)*-2 + 9}"]    
                     answer << true
-            end
                 end
+            end
             count += 3
         end        
-         answer.include?(true)
+        # p "---------"
+        answer.include?(true)
     end
 
     def key_check?(choice)
@@ -84,3 +85,6 @@ class Board
     end
 
 end
+
+
+
