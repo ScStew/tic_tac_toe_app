@@ -61,7 +61,7 @@ class Hard_ai
                             end
 
                         elsif players_move[0].to_i % 2 == 1 && players_move[0] != "5" 
-                           p "made it here"
+                        #    p "made it here"
                             choice = "5"
 
                         else
@@ -78,14 +78,14 @@ class Hard_ai
                             choice = "5"
                         end
                     end
-                        p open_spaces
-                        p players_move.length
+                        # p open_spaces
+                        # p players_move.length
                     if players_move.length >= 3
-                        p open_spaces
+                        # p open_spaces
                         choice << open_spaces.sample
                     end
 
-                    p "#{choice}"
+                    # p "#{choice}"
                 
                 end
                 
