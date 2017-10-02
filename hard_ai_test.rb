@@ -102,4 +102,10 @@ class Test_hard_ai < Minitest::Test
         bot = Hard_ai.new
         assert_equal("8",bot.move(board)) 
     end
+
+    def test_ai_win_bottom_row
+        board = {"1"=> "x","2" => "2","3"=> "x", "4"=> "4", "5" => "x" ,"6" => "6", "7" => "o","8" => "8", "9" => "o"} 
+        bot = Hard_ai.new
+        assert_equal("8",bot.move(board))
+    end
 end
