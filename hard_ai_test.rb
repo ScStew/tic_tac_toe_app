@@ -36,5 +36,29 @@ class Test_hard_ai < Minitest::Test
         bot = Hard_ai.new
         assert_equal("9",bot.move(board))
     end
+
+    def test_ai_first_choice_1
+        board = {"1"=> "x","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"} 
+        bot = Hard_ai.new
+        assert_equal("5",bot.move(board))
+    end
     
+    def test_ai_first_choice_3
+        board = {"1"=> "1","2" => "2","3"=> "x", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"} 
+        bot = Hard_ai.new
+        assert_equal("5",bot.move(board))
+    end
+
+    def test_ai_first_choice_7
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "x","8" => "8", "9" => "9"}
+        bot = Hard_ai.new
+        assert_equal("5",bot.move(board))
+    end
+    
+    def test_ai_first_choice_9
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "x"} 
+        bot = Hard_ai.new
+        assert_equal("5",bot.move(board))
+    end
+        
 end
