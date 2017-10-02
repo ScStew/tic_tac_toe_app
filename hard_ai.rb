@@ -13,7 +13,7 @@ class Hard_ai
         win_move_arr = []
         block_move_arr = []
         choice = []
-        
+        player_class.player = "o"
         board_class.game_board = board
         board.each_pair do |key,value|
             if key == value
@@ -36,17 +36,18 @@ class Hard_ai
             player_class.change_players
             board_class.update(possible_choices,possible_choices)
         end
-        p block_move_arr
-        if win_move_arr.any?
+        # p "#{win_move_arr}!!!!!!!!!"
+        # p block_move_arr
+        if win_move_arr.empty? == false
             choice << win_move_arr[0]
-        elsif block_move_arr.any?
+        elsif block_move_arr.empty? == false && win_move_arr.empty? == true
             choice << block_move_arr[0]
         end
         
             # p choice
             players_move = []
             if choice.any? == false
-                p "made it here"
+                # p "made it here"
                 board.each_pair do |key,value|
                     if value == "x"
                         players_move << key
