@@ -6,7 +6,6 @@ class Hard_ai
     
     
     def move(board)
-        board = board
         player_class = Player.new
         board_class = Board.new
         open_spaces = []
@@ -15,6 +14,7 @@ class Hard_ai
         choice = []
         player_class.player = "o"
         board_class.game_board = board
+       
         board.each_pair do |key,value|
             if key == value
                 open_spaces << key
