@@ -60,5 +60,46 @@ class Test_hard_ai < Minitest::Test
         bot = Hard_ai.new
         assert_equal("5",bot.move(board))
     end
-        
+
+    def test_ai_block_1_7_column
+        board = {"1"=> "x","2" => "2","3"=> "3", "4"=> "4", "5" => "o" ,"6" => "6", "7" => "x","8" => "8", "9" => "9"} 
+        bot = Hard_ai.new
+        assert_equal("4",bot.move(board))
+    end
+
+    def test_ai_block_2_8_column
+        board = {"1"=> "o","2" => "x","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "x", "9" => "9"}
+        bot = Hard_ai.new
+        assert_equal("5",bot.move(board))
+    end
+
+    def test_ai_block_3_9_column
+        board = {"1"=> "1","2" => "2","3"=> "x", "4"=> "4", "5" => "o" ,"6" => "6", "7" => "7","8" => "8", "9" => "x"} 
+        bot = Hard_ai.new
+        assert_equal("6",bot.move(board))
+    end
+
+    def test_ai_block_1_3_row
+        board = {"1"=> "x","2" => "2","3"=> "x", "4"=> "4", "5" => "o" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"} 
+        bot = Hard_ai.new
+        assert_equal("2",bot.move(board))
+    end
+
+    def test_ai_block_4_6_row
+        board = {"1"=> "o","2" => "2","3"=> "3", "4"=> "x", "5" => "5" ,"6" => "x", "7" => "7","8" => "8", "9" => "9"} 
+        bot = Hard_ai.new
+        assert_equal("5",bot.move(board))
+    end
+
+    def test_ai_block_7_9_row
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "o" ,"6" => "6", "7" => "x","8" => "8", "9" => "x"}
+        bot = Hard_ai.new
+        assert_equal("8",bot.move(board))
+    end 
+
+    def test_ai_win_top_row
+        board = {"1"=> "1","2" => "o","3"=> "x", "4"=> "x", "5" => "x" ,"6" => "6", "7" => "o","8" => "8", "9" => "o"}
+        bot = Hard_ai.new
+        assert_equal("8",bot.move(board)) 
+    end
 end

@@ -9,30 +9,40 @@ def game
     player = Player.new
     board = Board.new
     ai = "dumb"
-    game = "start"
+    game = ""
+    wrong = ""
     p "How Many Players: 1 or 2"
+    
+    until wrong == "right"
     num = gets.chomp
-    if num == "1"
-        
-        until ai != "dumb" do
-            p "how hard do you want it to be: 1:2:3"
-            diff = gets.chomp
-                
-            if diff == "2"
-                ai = Sequence_ai.new
-            elsif diff == "1"
-                ai = Random_ai.new
-            elsif diff == "3"
-                ai = Hard_ai.new
-            else
-                p "not a valid choice"
-            end    
+
+        if num == "1"
+            wrong = "right"
+            until ai != "dumb" do
+                p "how hard do you want it to be: 1:2:3"
+                diff = gets.chomp
+                    
+                if diff == "2"
+                    ai = Sequence_ai.new
+                    game = "start"
+                elsif diff == "1"
+                    ai = Random_ai.new
+                    game = "start"
+                elsif diff == "3"
+                    ai = Hard_ai.new
+                    game = "start"
+                else
+                    p "not a valid choice"
+                end    
+            end
+        elsif num == "2"
+            wrong = "right"
+            game = "start"
+        else
+            p "Not a valid Entry"
         end
-    elsif num == "2"
-        game = "start"
-    else
-        p "Not a valid Entry"
     end
+    
     
     if game == "start"
         until game == "end"
