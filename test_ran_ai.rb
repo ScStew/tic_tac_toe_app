@@ -9,4 +9,10 @@ class Test_ran_ai < Minitest::Test
         test = test_arr.include?(ran_ai.move(board))
         assert_equal(true,test)
      end
+
+     def test_rand_ai_1_outcome
+        ran_ai = Random_ai.new
+        board = {"1"=> "1","2" => "x","3"=> "x", "4"=> "x", "5" => "x" ,"6" => "x", "7" => "x","8" => "x", "9" => "x"}
+        assert_equal("1",ran_ai.move(board))
+    end
 end
