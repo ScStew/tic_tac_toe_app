@@ -19,9 +19,17 @@ get "/players" do
 end
 
 post '/players' do
+    num_players = params[:num_players]
+    if num_players == "1"
     redirect "/difficulty?"
+    elsif num_players == "2"
+    end
 end
 
 get "/difficulty" do
     erb :difficulty
+end
+
+post "/difficulty" do 
+    diff = params[:diff]
 end
