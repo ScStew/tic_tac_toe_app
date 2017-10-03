@@ -7,6 +7,7 @@ end
 
 post "/no_play" do
     erb :no_page
+end
 
 
 get "/yes_play" do
