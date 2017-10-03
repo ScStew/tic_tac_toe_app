@@ -50,5 +50,6 @@ post "/difficulty" do
 end
 
 get "/game" do
+    session[:board].game_board
     erb :game
 end
