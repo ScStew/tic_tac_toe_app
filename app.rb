@@ -10,6 +10,18 @@ post "/no_play" do
 end
 
 
-get "/yes_play" do
-    erb :yes_page
+post "/yes_play" do
+    redirect "/players?"
+end
+
+get "/players" do 
+    erb :players
+end
+
+post '/players' do
+    redirect "/difficulty?"
+end
+
+get "/difficulty" do
+    erb :difficulty
 end
