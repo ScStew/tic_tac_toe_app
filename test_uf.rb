@@ -61,6 +61,12 @@ class Test_unbeatable < Minitest::Test
         assert_equal("8",winning_move(board,player))
     end
 
+    def test_winning_move_false_2
+        board = {"1"=> "o","2" => "2","3"=> "o", "4"=> "x", "5" => "x" ,"6" => "o", "7" => "o","8" => "o", "9" => "x"}
+        player = "x"
+        assert_equal(false,winning_move(board,player))
+    end
+
 
 
 end
