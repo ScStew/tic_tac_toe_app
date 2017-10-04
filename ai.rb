@@ -75,8 +75,7 @@ class Hard_ai
                         if players_move[0].to_i % 2 == 0 && players_move[1].to_i % 2 == 0
                             choice = "5"
                         elsif players_move[0].to_i % 2 == 1 && players_move[1].to_i % 2 == 1
-                            choice = "1
-                            "
+                            choice = "1"
                         elsif players_move[0].to_i % 2 == 1 && players_move[1].to_i % 2 == 0 && players_move.include?("5") == false|| players_move[0].to_i % 2 == 0 && players_move[1].to_i % 2 == 1 && players_move.include?("5") == false
                             choice = "5"
                         end

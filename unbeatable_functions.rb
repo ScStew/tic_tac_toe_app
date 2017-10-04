@@ -107,12 +107,15 @@ def fourth_action(board,player)
             player_arr << key
         end
     end
+    p player_arr
     if player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 0
          choice = "5"
-    elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1
-        choice = "1"
+    elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == true
+        choice = "3"
+    elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == false
+        choice = "2"
     elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 0 && player_arr.include?("5") == false|| player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == false
-            choice = "5"
+        choice = "5"
     end
 end
         

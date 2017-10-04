@@ -7,6 +7,7 @@ require_relative "ai.rb"
 def game
     player = Player.new
     board = Board.new
+    player.player = "x"
     ai = "dumb"
     game = ""
     wrong = ""
