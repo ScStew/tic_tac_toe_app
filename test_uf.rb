@@ -49,4 +49,18 @@ class Test_unbeatable < Minitest::Test
         assert_equal('6',winning_move(board,player))
     end
 
+    def test_winning_move_7_column
+        board = {"1"=> "x","2" => "2","3"=> "o", "4"=> "x", "5" => "5" ,"6" => "o", "7" => "7","8" => "8", "9" => "9"}
+        player = "x"
+        assert_equal('7',winning_move(board,player))
+    end
+
+    def test_winning_move_8_row
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "o", "5" => "o" ,"6" => "6", "7" => "x","8" => "8", "9" => "x"}
+        player = "x"
+        assert_equal("8",winning_move(board,player))
+    end
+
+
+
 end
