@@ -151,5 +151,11 @@ class Test_unbeatable < Minitest::Test
         assert("5",first_move(board))
     end
 
+    def test_first_move_2
+        board = {"1"=> "1","2" => "x","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"}
+        assert_equal("1",first_move(board))
+    end
+    
+
 
 end
