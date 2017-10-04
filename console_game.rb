@@ -1,8 +1,7 @@
 require_relative "board.rb"
 require_relative "player.rb"
-require_relative "ran_ai.rb"
-require_relative "seq_ai.rb"
-require_relative "hard_ai.rb"
+require_relative "ai.rb"
+
 
 
 def game
