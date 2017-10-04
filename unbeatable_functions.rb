@@ -66,6 +66,8 @@ def first_move(board)
                    choice = key_edge_seperator(key)
                 elsif key.to_i % 2 == 1 && key.to_i != 5
                     choice = "5"
+                else
+                    choice = "7"
                 end
             end
         end
