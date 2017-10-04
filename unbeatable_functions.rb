@@ -7,11 +7,11 @@ def winning_move(board,player)
     choice = ""
     board.each_pair do |key,value|
         if key == value
-            key.update(player,key)
+            board_class.update(player,key)
             if board_class.winner? == true
                 choice = key
             end
-            key.update(key,key)    
+            board_class.update(key,key)    
         end
     end
     if choice == ""
