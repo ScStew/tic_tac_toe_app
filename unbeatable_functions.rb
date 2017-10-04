@@ -27,8 +27,8 @@ def blocking_move(board,player)
     board_class = Board.new
     board_class.game_board = board
     player = player_class.change_players
-    )
     choice = ""
+    
     board.each_pair do |key,value|
         if key == value
             board_class.update(player,key)
@@ -41,4 +41,5 @@ def blocking_move(board,player)
     if choice == ""
         choice = false
     end
-    choice       
+    choice  
+end     

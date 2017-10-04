@@ -67,6 +67,18 @@ class Test_unbeatable < Minitest::Test
         assert_equal(false,winning_move(board,player))
     end
 
+    def test_blocking_move_false
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"}
+        player = "x"
+        assert_equal(false,blocking_move(board,player))
+    end
+
+    def test_blocking_move_1
+        board = {"1"=> "1","2" => "o","3"=> "o", "4"=> "4", "5" => "x" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"}
+        player = "x"
+        assert_equal("1",blocking_move(board,player))
+    end
+
 
 
 end
