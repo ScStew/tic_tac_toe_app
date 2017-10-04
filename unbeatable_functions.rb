@@ -57,10 +57,10 @@ end
 
 
 
-def first_move(board,player)
+def first_move(board)
     choice = ''
     if board.values.include?('x')
-        board.each_pair do |key,values|
+        board.each_pair do |key,value|
             if key != value
                 if key.to_i % 2 == 0
                    choice = key_edge_seperator(key)
