@@ -26,7 +26,8 @@ def blocking_move(board,player)
     player_class.player = player
     board_class = Board.new
     board_class.game_board = board
-    player = player_class.change_players
+    player_class.change_players
+    player = player_class.player
     choice = ""
     
     board.each_pair do |key,value|
@@ -42,4 +43,41 @@ def blocking_move(board,player)
         choice = false
     end
     choice  
-end     
+end
+
+def key_edge_seperator(key)
+    if key == "2" || key == "4"
+        "1"
+    elsif key == "6" || key == "8"
+        "9"
+    end
+end
+
+
+
+
+
+def first_move(board,player)
+
+    if board.values.include?('x')
+        board.each_pair do |key,values|
+            if key != value
+                if key.to_i % 2 == 0
+                   choice = key_edge_seperator(key)
+                elsif key.to_i % 2 == 1 && key.to_i != 5
+                    choice = key_corner_seperator(key)
+                end
+            end
+        end
+    else
+        choice = "7"
+    end
+end
+
+        
+        
+
+        
+    
+        
+            

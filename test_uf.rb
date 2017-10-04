@@ -121,6 +121,25 @@ class Test_unbeatable < Minitest::Test
         assert_equal("8",blocking_move(board,player))
     end
 
+    def test_key_edge_seperator_2
+        key = "2"
+        assert_equal("1",key_edge_seperator(key))
+    end
+        
+    def test_key_edge_seperator_4
+        key = "4"
+        assert_equal("1",key_edge_seperator(key))
+    end
+
+    def test_key_edge_seperator_6
+        key = "6"
+        assert_equal("9",key_edge_seperator(key))
+    end
+
+    def test_key_edge_seperator_8
+        key = "8"
+        assert_equal("9",key_edge_seperator(key))\
+    end
 
 
 end
