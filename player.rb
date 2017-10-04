@@ -1,9 +1,10 @@
 class Player
     
-    attr_accessor :player
+    attr_accessor :player, :other_player
 
     def initialize 
         @player = "x"
+        @other_player = change_players
     end
 
     def change_players

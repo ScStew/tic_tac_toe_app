@@ -191,6 +191,4 @@ class Test_unbeatable < Minitest::Test
         assert_equal("5",first_move(board))
     end
 
-
-
 end

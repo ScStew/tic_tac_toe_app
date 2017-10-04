@@ -26,13 +26,12 @@ def blocking_move(board,player)
     player_class.player = player
     board_class = Board.new
     board_class.game_board = board
-    player_class.change_players
-    player = player_class.player
+    other_player = player_class.other_player
     choice = ""
     
     board.each_pair do |key,value|
         if key == value
-            board_class.update(player,key)
+            board_class.update(other_player,key)
             if board_class.winner? == true
                 choice = key
             end
@@ -77,6 +76,20 @@ def first_move(board)
     choice
 end
 
+
+def second_move(board,player)
+    player_class = Player.new
+    player_class.player = player
+    counter = 0
+        board.each_pair do |key,value|
+            if value == 
+                counter += 1
+            end
+        end
+     if counter == 0
+    end
+    
+end
         
         
 
