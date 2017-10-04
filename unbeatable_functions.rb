@@ -82,17 +82,39 @@ def second_move(board,player)
     player_class.player = player
     counter = 0
         board.each_pair do |key,value|
-            if value == 
+            if value == other_player
                 counter += 1
             end
         end
-     if counter == 0
+    if counter == 1
+        choice = third_action(board)
+    else
+        choice = fourth_action(board,player)
     end
     
 end
         
         
+def fourth_action(board,player)
+    player_arr = []
+    player_class = Player.new
+    player_class.player = player
+    other_player = player_class.other_player
 
+       
+    board.each_pair do |key,value|
+        if key == other_player
+            player_arr << key
+        end
+    end
+    if player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 0
+         choice = "5"
+    elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1
+        choice = "1"
+    elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 0 && player_arr.include?("5") == false|| player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == false
+            choice = "5"
+    end
+end
         
     
         

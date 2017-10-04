@@ -191,4 +191,10 @@ class Test_unbeatable < Minitest::Test
         assert_equal("5",first_move(board))
     end
 
+    def test_fourth_action_2_4
+        board = {"1"=> "1","2" => "x","3"=> "3", "4"=> "x", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"}
+        player = "o"
+        assert_equal("5",fourth_action(board,player))
+    end    
+
 end
