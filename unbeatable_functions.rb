@@ -58,20 +58,21 @@ end
 
 
 def first_move(board,player)
-
+    choice = ''
     if board.values.include?('x')
         board.each_pair do |key,values|
             if key != value
                 if key.to_i % 2 == 0
                    choice = key_edge_seperator(key)
                 elsif key.to_i % 2 == 1 && key.to_i != 5
-                    choice = key_corner_seperator(key)
+                    choice = "5"
                 end
             end
         end
     else
         choice = "7"
     end
+    choice
 end
 
         

@@ -141,5 +141,13 @@ class Test_unbeatable < Minitest::Test
         assert_equal("9",key_edge_seperator(key))\
     end
 
+    def test_first_move_ai_no_moves_yet
+        board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"}
+        player = "x"
+        assert_equal("7",first_move(board,player))
+    end
+    
+    
+
 
 end
