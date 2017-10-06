@@ -222,6 +222,10 @@ class Test_unbeatable < Minitest::Test
         assert_equal("5",third_action(board,player))
     end
     
+    def test_random_choice_return_1
+        board = {"1"=> "1","2" => "x","3"=> "x", "4"=> "o", "5" => "x" ,"6" => "x", "7" => "x","8" => "x", "9" => "x"}
+        assert_equal("1",random_choice(board))
+    end
     
 
     

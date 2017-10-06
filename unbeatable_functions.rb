@@ -144,6 +144,28 @@ def fourth_action(board,player)
         choice = "5"
     end
 end
+
+
+def third_move(board,player)
+
+    if player = "o"
+        random_choice(board)
+    end
+            
+
+end
+
+
+def random_choice(board)
+    ran_arr = []
+    board.each_pair do |key, value|
+        if key == value
+            ran_arr << key
+        end
+    end
+    ran_arr.sample
+
+end
         
     
         
