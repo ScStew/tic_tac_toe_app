@@ -93,28 +93,53 @@ def second_move(board,player)
     end
     
 end
+
+
+def third_action(board,player)
+    player_class = Player.new
+    player_class.player = player
+    other_player = player_class.change_players
+    choice = "" 
+
+        board.each_pair do |key,value|
+            if value == other_player
+                if value == "5"
+                    choice = "3"    
+                else
+                    choice = "5"
+                end
+            end
+        end
+        choice
+
+end
+
+
         
         
 def fourth_action(board,player)
     player_arr = []
     player_class = Player.new
     player_class.player = player
-    other_player = player_class.other_player
-
+    other_player = player_class.change_players
+    
        
     board.each_pair do |key,value|
-        if key == other_player
+        if value == other_player
             player_arr << key
         end
+        # p player_arr
     end
-    p player_arr
+    # p player_arr
     if player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 0
          choice = "5"
-    elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == true
-        choice = "3"
+    elsif player_arr.include?("3") == true && player_arr.include?("5") == true
+        choice = "1"
     elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == false
+         choice = "1"
+    elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == true
         choice = "2"
-    elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 0 && player_arr.include?("5") == false|| player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == false
+    elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 0 && player_arr.include?("5") == false || player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == false
         choice = "5"
     end
 end
