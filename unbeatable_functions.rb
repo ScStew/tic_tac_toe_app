@@ -103,7 +103,7 @@ def third_action(board,player)
 
         board.each_pair do |key,value|
             if value == other_player
-                p key
+                # p key
                 if key == "5"
                     choice = "3"    
                 else
@@ -131,15 +131,15 @@ def fourth_action(board,player)
         end
         # p player_arr
     end
-     p player_arr
+    #  p player_arr
     if player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 0
          choice = "5"
     elsif player_arr.include?("3") == true && player_arr.include?("5") == true
         choice = "1"
     elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == false
-         choice = "1"
+         choice = "2"
     elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == true
-        choice = "2"
+        choice = "1"
     elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 0 && player_arr.include?("5") == false || player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == false
         choice = "5"
     end
