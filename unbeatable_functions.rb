@@ -150,12 +150,39 @@ def third_move(board,player)
 
     if player = "o"
         random_choice(board)
+    else
+        fifth_action(board,player)
     end
             
 
 end
 
+def fifth_action(board,player)
+  players_move = []
+  other_players_move = []
+  choice = "1"
+    board.each_pair do |key,value|
+        if value == player
+            players_move = key
+        elsif value != key && value != player
+            other_players_move << key
+        end
+    end
+    if players_move.length
+    if players_move.include?("5") && other_players_move.include?("4")
+        choice = "9"
+    elsif players_move.include?("5") && other_players_move.include?("8")
+        choice = "1"
+    elsif players_move.include?("5") == false && other_players_move.include?("1")
+        choice = "9"
+    elsif players_move.include?("5") == false && other_players_move.include?("9")
+        choice = "1"
+    else
+        random_choice(board)
+    end
+    
 
+end
 def random_choice(board)
     ran_arr = []
     board.each_pair do |key, value|
