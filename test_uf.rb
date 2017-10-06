@@ -215,8 +215,15 @@ class Test_unbeatable < Minitest::Test
         player = 'x'
         assert_equal("3",third_action(board,player)  )
     end
+
+    def test_third_action_return_5
+        board = {"1"=> "1","2" => "2","3"=> "x", "4"=> "o", "5" => "5" ,"6" => "6", "7" => "x","8" => "8", "9" => "9"}
+        player = 'x'
+        assert_equal("5",third_action(board,player))
+    end
     
     
+
     
 
 
