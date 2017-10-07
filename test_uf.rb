@@ -245,6 +245,17 @@ class Test_unbeatable < Minitest::Test
     #     assert_equal("3",fourth_action(board,player))
     # end
     
+    def test_fifth_action_return_9_2
+        board = {"1"=> "o","2" => "2","3"=> "x", "4"=> "4", "5" => "o" ,"6" => "6", "7" => "x","8" => "8", "9" => "9"}
+        player = "x"
+        assert_equal("9",fifth_action(board,player))
+    end
+
+    def test_fifth_action_return_1_2
+        board = {"1"=> "1","2" => "2","3"=> "x", "4"=> "4", "5" => "o" ,"6" => "6", "7" => "x","8" => "8", "9" => "o"}
+        player = 'x'
+        assert_equal("1",fifth_action(board,player))
+    end
 
 
 

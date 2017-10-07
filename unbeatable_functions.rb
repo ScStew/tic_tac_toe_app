@@ -170,12 +170,12 @@ def fifth_action(board,player)
   choice = ""
     board.each_pair do |key,value|
         if value == player
-            players_move = key
+            players_move << key
         elsif value != key && value != player
             other_players_move << key
         end
     end
-    p players_move.length
+    # p players_move.length
     if players_move.length == 2
         if players_move.include?("5") == true && other_players_move.include?("4") == true
             choice = "9"
