@@ -3,7 +3,7 @@ class Board
     attr_accessor :game_board
     def initialize
         @game_board = {"1"=> "1","2" => "2","3"=> "3", "4"=> "4", "5" => "5" ,"6" => "6", "7" => "7","8" => "8", "9" => "9"}
-        @firstmove = "start"
+        # @firstmove = "start"
     end
 
     # def firstmove_select(choice)

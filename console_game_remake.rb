@@ -2,35 +2,37 @@ require_relative "board.rb"
 require_relative "player.rb"
 require_relative "ai.rb"
 
-def players
-    num = ""
+def how_many_players
+    num = " "
     p "how many players 1:2"
-    until num != ""
+    until num != " "
         num = gets.chomp
-        if num =+ "1"
-            num
+        if num == "1"
+            num = "1"
         elsif num == "2"
-            num
+            num = "2"
         else
-            num = ""
+            num = " "
+            p "not a valid choice"
         end
     end
-
+    num
 end
 
 def choose_ai
         p "difficulty 1:2:3"
-            ai = ""
-        until ai != ''
+            ai = " "
+        until ai != ' ' do
             ai = gets.chomp
-            if ai = "1"
+            if ai == "1"
                 ai = Random_ai.new
-            elsif ai = "2"
+            elsif ai == "2"
                 ai = Sequence_ai.new
-            elsif ai = "3"
+            elsif ai == "3"
                 ai = Hard_ai.new
             else
-                ai = ""
+                ai = " "
+                p "invalid choice"
             end
         end
     ai
@@ -38,15 +40,82 @@ end
 
 def first_or_second
     p "would you like to go first(y/n)"
-    choice = ""    
-    until choice != ""
+    choice = " "    
+    until choice != " " do
         choice = gets.chomp.upcase
         if choice == "Y"
             "player"
         elsif choice == "N"
             "ai"
         else
-            choice = ""
+            p "invalid input"
+            choice = " "
         end
     end
+    choice
 end
+
+def game
+    board_class = Board.new
+    player_class = Player.new
+    # board = board_class.game_board
+    num =  how_many_players
+    game = "start"
+    ai = ""
+    order =""
+    if num == "1"
+        ai = choose_ai
+        x = first_or_second
+        if x == "player"
+            order = {"o" => "ai", "x" => "player"}
+        else
+            x = ai
+            order = {"o" => "player", "x" => "ai"}        
+        end
+    else
+        order = {"o" => "player", "x" => "player"}
+    end
+    player_class.player = "x"
+    until game == "done" do
+        board = board_class.game_board
+        player = player_class.player
+        p "#{player}'s turn'"
+        board_class.print
+        if order[player] == "player"
+            p "choose one"
+            choice = gets.chomp
+        else
+            choice = ai.move(board,player)
+        end
+                if board_class.key_check?(choice) == true
+                    if board_class.valid_spot?(choice) == true
+                        board_class.update(player,choice)
+                        if board_class.winner? == true
+                            p "#{player} wins"
+                            game = "done"
+                        else
+                            if board_class.board_not_full? == true
+                                player_class.change_players
+                            else
+                                p "tie game"
+                                game = "done"
+                            end
+                        end
+                    else
+                        p "invalid move"
+                    end
+                else
+                    p "invalid move"
+                end
+            
+    end
+    board_class.print
+end
+
+game
+
+
+        
+        
+    
+    
