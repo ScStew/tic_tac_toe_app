@@ -15,7 +15,7 @@ class Hard_ai
             if choice == false
                 choice = blocking_move(board,player)
                 if choice == false
-                    p "#{counter}counter"
+                    # p "#{counter}counter"
                     if @counter == 1
                         @counter += 1
                         choice = first_move(board)

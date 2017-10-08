@@ -44,9 +44,9 @@ def first_or_second
     until choice != " " do
         choice = gets.chomp.upcase
         if choice == "Y"
-            "player"
+           choice = "player"
         elsif choice == "N"
-            "ai"
+           choice = "ai"
         else
             p "invalid input"
             choice = " "
