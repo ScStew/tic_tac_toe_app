@@ -26,7 +26,11 @@ def blocking_move(board,player)
     player_class.player = player
     board_class = Board.new
     board_class.game_board = board
-    other_player = player_class.change_players
+    if player == "x"
+        other_player = "o"
+    else
+        other_player = "x"
+    end
     choice = ""
     
     board.each_pair do |key,value|
@@ -88,7 +92,7 @@ def second_move(board,player)
             end
         end
     if s_counter == 1
-        choice = third_action(board)
+        choice = third_action(board,player)
     else
         choice = fourth_action(board,player)
     end

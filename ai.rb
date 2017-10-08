@@ -13,13 +13,13 @@ class Hard_ai
     def move(board,player)
         choice = winning_move(board,player)
             if choice == false
-                choice == blocking_move(board,player)
+                choice = blocking_move(board,player)
                 if choice == false
                     p "#{counter}counter"
-                    if counter == 1
+                    if @counter == 1
                         @counter += 1
                         choice = first_move(board)
-                    elsif counter == 2
+                    elsif @counter == 2
                         @counter += 1
                         choice = second_move(board,player)
                     else

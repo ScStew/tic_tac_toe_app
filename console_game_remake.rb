@@ -65,11 +65,10 @@ def game
     order =""
     if num == "1"
         ai = choose_ai
-        x = first_or_second
-        if x == "player"
+       
+        if  first_or_second == "player"
             order = {"o" => "ai", "x" => "player"}
         else
-            x = ai
             order = {"o" => "player", "x" => "ai"}        
         end
     else
@@ -81,11 +80,11 @@ def game
         player = player_class.player
         p "#{player}'s turn'"
         board_class.print
-        if order[player] == "player"
+        if order[player_class.player] == "player"
             p "choose one"
             choice = gets.chomp
         else
-            choice = ai.move(board,player)
+            choice = ai.move(board_class.game_board,player_class.player)
         end
                 if board_class.key_check?(choice) == true
                     if board_class.valid_spot?(choice) == true
