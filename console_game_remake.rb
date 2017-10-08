@@ -11,6 +11,8 @@ def how_many_players
             num = "1"
         elsif num == "2"
             num = "2"
+        elsif num == "0"
+            num = "0"
         else
             num = " "
             p "not a valid choice"
@@ -62,6 +64,7 @@ def game
     num =  how_many_players
     game = "start"
     ai = ""
+    ai_2 = ""
     order =""
     if num == "1"
         ai = choose_ai
@@ -71,8 +74,12 @@ def game
         else
             order = {"o" => "player", "x" => "ai"}        
         end
-    else
+    elsif num == "2"
         order = {"o" => "player", "x" => "player"}
+    else
+        ai = choose_ai
+        ai_2 = choose_ai
+        order = {"o" => "ai_2", "x" => "ai"}
     end
     player_class.player = "x"
     until game == "done" do
@@ -83,9 +90,12 @@ def game
         if order[player_class.player] == "player"
             p "choose one"
             choice = gets.chomp
-        else
+        elsif order[player_class.player] == "ai"
             choice = ai.move(board_class.game_board,player_class.player)
+        else
+            choice = ai_2.move(board_class.game_board,player_class.player)
         end
+
                 if board_class.key_check?(choice) == true
                     if board_class.valid_spot?(choice) == true
                         board_class.update(player,choice)
