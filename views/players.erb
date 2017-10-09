@@ -1,6 +1,52 @@
-How many players 1 or 2
-<form method = "post" action = "players">
-<input type = "radio" name = "num_players" value = "1">1
-<input type = "radio" name = "num_players" value = "2">2
-<input type = "submit" value = "enter">
+How many Players?
+<form method = "post" action = "setup">
+<button type = "button" onclick = "my_function()">1</button>
+<button type = 'button' onclick = "my_function2()">2</button>
+<p id = "inputs" >
+</p>
+
 </form>
+
+
+<script>
+function my_function(){
+   var x, input, text;
+   x = document.getElementById("inputs").innerHTML = "Enter Player's Name<br>";
+   text = document.createTextNode("difficulty")
+   input = document.createElement("input");
+   input.type = "text";
+   input.name = "players_name";
+   input.required = true;
+   input.placeholder = "Enter Name Here";
+   document.getElementById("inputs").appendChild(input).value;
+   document.getElementById("inputs").appendChild(text).value;
+        for(var count = 1; count <= 3; count ++) {
+            text = document.createTextNode(""+ count +"")
+            input = document.createElement("input");
+            input.type = "radio";
+            input.name = "ai_diff";
+            input.value = count;
+            input.id = "radio_button";
+            document.getElementById("inputs").appendChild(input).value;
+            document.getElementById("inputs").appendChild(text).value;
+        }
+}
+
+function my_function2() {
+    var x, input, input2;
+    x = document.getElementById("inputs").innerHTML = "Enter Each players name<br>";
+    
+    input = document.createElement("input");
+    input.type = "text";
+    input.name = "players_name[]";
+    input.required = true;
+    input.placeholder = "Player 1";
+    input2 = document.createElement("input");
+    input2.type = "text";
+    input2.name = "players_name[]";
+    input2.required = true;
+    input2.placeholder = "Player 2";
+    document.getElementById("inputs").appendChild(input).value;
+    document.getElementById("inputs").appendChild(input2).value;
+}
+</script>

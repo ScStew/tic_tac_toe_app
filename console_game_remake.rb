@@ -7,6 +7,7 @@ def how_many_players
     p "how many players 1:2"
     until num != " "
         num = gets.chomp
+        # num = "0"
         if num == "1"
             num = "1"
         elsif num == "2"
@@ -26,6 +27,7 @@ def choose_ai
             ai = " "
         until ai != ' ' do
             ai = gets.chomp
+            # ai = "3"
             if ai == "1"
                 ai = Random_ai.new
             elsif ai == "2"
@@ -100,13 +102,13 @@ def game
                     if board_class.valid_spot?(choice) == true
                         board_class.update(player,choice)
                         if board_class.winner? == true
-                            p "#{player} wins"
+                            ret = "#{player} wins"
                             game = "done"
                         else
                             if board_class.board_not_full? == true
                                 player_class.change_players
                             else
-                                p "tie game"
+                                ret = "tie game"
                                 game = "done"
                             end
                         end
@@ -119,10 +121,23 @@ def game
             
     end
     board_class.print
+    p ret
 end
+    game
 
-game
+# def ai_test
+#     counter = 0
+# 10587.times do
+#    ret = game
+#    counter += 1
+#    p "#{ret} #{counter}"
+#    if ret != "tie game"
+#         break
+#    end
+# end
+# end
 
+# ai_test
 
         
         
