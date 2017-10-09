@@ -1,7 +1,7 @@
 How many Players?
 <form method = "post" action = "setup">
-<button type = "button" onclick = "my_function()">1</button>
-<button type = 'button' onclick = "my_function2()">2</button>
+<button type = "button" onclick = "one_player()">1</button>
+<button type = 'button' onclick = "two_player()">2</button>
 <p id = "inputs" >
 </p>
 
@@ -9,13 +9,16 @@ How many Players?
 
 
 <script>
-function my_function(){
-   var x, input, text;
-   x = document.getElementById("inputs").innerHTML = "Enter Player's Name<br>";
+function one_player(){
+    var x, input, text, submit;
+    submit = document.createElement("input");
+    submit.type = "submit";
+    submit.value = "enter";
+    x = document.getElementById("inputs").innerHTML = "Enter Player's Name<br>";
    text = document.createTextNode("difficulty")
    input = document.createElement("input");
    input.type = "text";
-   input.name = "players_name";
+   input.name = "players_name[player_1]";
    input.required = true;
    input.placeholder = "Enter Name Here";
    document.getElementById("inputs").appendChild(input).value;
@@ -30,23 +33,27 @@ function my_function(){
             document.getElementById("inputs").appendChild(input).value;
             document.getElementById("inputs").appendChild(text).value;
         }
+    document.getElementById("inputs").appendChild(submit).value;
 }
 
-function my_function2() {
-    var x, input, input2;
-    x = document.getElementById("inputs").innerHTML = "Enter Each players name<br>";
-    
+function two_player() {
+    var x, input, input2, submit;
     input = document.createElement("input");
     input.type = "text";
-    input.name = "players_name[]";
+    input.name = "players_name[player_1]";
     input.required = true;
     input.placeholder = "Player 1";
     input2 = document.createElement("input");
     input2.type = "text";
-    input2.name = "players_name[]";
+    input2.name = "players_name[player_2]";
     input2.required = true;
     input2.placeholder = "Player 2";
+    x = document.getElementById("inputs").innerHTML = "Enter Each players name<br>";
+    submit = document.createElement("input");
+    submit.type = "submit";
+    submit.value = "enter";
     document.getElementById("inputs").appendChild(input).value;
     document.getElementById("inputs").appendChild(input2).value;
+    document.getElementById("inputs").appendChild(submit).value;
 }
 </script>

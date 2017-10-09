@@ -24,6 +24,18 @@ get "/players" do
     erb :players
 end
 
+post "/setup" do
+players_name = params[:players_name]
+diff = params[:ai_diff]
+num_of_players = ""
+    if players_name.values.length == 1
+        num_of_players = 1
+    else
+        num_of_plaers = 2
+    end
+
+end
+
 # post '/players' do
 #     num_players = params[:num_players]
 #     if num_players == "1"
