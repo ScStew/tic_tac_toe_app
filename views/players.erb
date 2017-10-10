@@ -18,7 +18,7 @@ function one_player(){
    text = document.createTextNode("difficulty")
    input = document.createElement("input");
    input.type = "text";
-   input.name = "players_name[player_1]";
+   input.name = "players_name[]";
    input.required = true;
    input.placeholder = "Enter Name Here";
    document.getElementById("inputs").appendChild(input).value;
@@ -40,12 +40,12 @@ function two_player() {
     var x, input, input2, submit;
     input = document.createElement("input");
     input.type = "text";
-    input.name = "players_name[player_1]";
+    input.name = "players_name[]";
     input.required = true;
     input.placeholder = "Player 1";
     input2 = document.createElement("input");
     input2.type = "text";
-    input2.name = "players_name[player_2]";
+    input2.name = "players_name[]";
     input2.required = true;
     input2.placeholder = "Player 2";
     x = document.getElementById("inputs").innerHTML = "Enter Each players name<br>";

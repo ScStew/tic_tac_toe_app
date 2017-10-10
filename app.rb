@@ -27,13 +27,24 @@ end
 post "/setup" do
 players_name = params[:players_name]
 diff = params[:ai_diff]
-num_of_players = 
-    if players_name.values.length == 1
-        num_of_players = 1
-    else
-        num_of_players = 2
-    end
-    redirect "/game?players_name=" + players_name + "&diff=" + diff + "&num_of_players=" + num_of_players
+num_of_players = ""
+if players_name.length == 1
+    num_of_players = "1"
+else
+    num_of_players = "2"
+end
+if diff == "1"
+    session[:ai] = Random_ai.new
+elsif diff == "2"
+    session[:ai] = Sequence_ai.new
+elsif diff == "3"
+    session[:ai] = Hard_ai
+else
+    diff = "no ai"
+end
+players_name = players_name.to_s
+
+redirect "/game?players_name=" + players_name + "&diff=" + diff + "&num_of_players=" + num_of_players
 
 end
 
@@ -63,8 +74,8 @@ end
 # end
 
 get "/game" do
-    params[:diff]
-    params[:num_of_players]
-    params[:players_name]
+    diff = params[:diff]
+    num_of_players = params[:num_of_players]
+    players_name = params[:players_name]
     erb :game, locals:{num_play:num_of_players,players_name:players_name,diff:diff}
 end
