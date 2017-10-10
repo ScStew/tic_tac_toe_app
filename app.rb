@@ -27,12 +27,13 @@ end
 post "/setup" do
 players_name = params[:players_name]
 diff = params[:ai_diff]
-num_of_players = ""
+num_of_players = 
     if players_name.values.length == 1
         num_of_players = 1
     else
-        num_of_plaers = 2
+        num_of_players = 2
     end
+    redirect "/game?players_name=" + players_name + "&diff=" + diff + "&num_of_players=" + num_of_players
 
 end
 
@@ -62,5 +63,8 @@ end
 # end
 
 get "/game" do
-    erb :game
+    params[:diff]
+    params[:num_of_players]
+    params[:players_name]
+    erb :game, locals:{num_play:num_of_players,players_name:players_name,diff:diff}
 end
