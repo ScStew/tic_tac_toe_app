@@ -2,12 +2,14 @@ require 'sinatra'
 require_relative "ai.rb"
 require_relative "player.rb"
 require_relative "board.rb"
+require_relative "game.rb"
 enable :sessions
 
 
 get "/" do
     session[:board]= Board.new
-    session[:player] = Player.new   
+    session[:player] = Player.new 
+    session[:player].player = "x"  
     erb :first_page
 end
 
@@ -25,26 +27,25 @@ get "/players" do
 end
 
 post "/setup" do
-players_name = params[:players_name]
+session[:players_name] = params[:players_name]
 diff = params[:ai_diff]
-num_of_players = ""
-if players_name.length == 1
-    num_of_players = "1"
+if session[:players_name].length == 1
+    session[:num_of_players] = "1"
 else
-    num_of_players = "2"
+    session[:num_of_players] = "2"
 end
 if diff == "1"
     session[:ai] = Random_ai.new
 elsif diff == "2"
     session[:ai] = Sequence_ai.new
 elsif diff == "3"
-    session[:ai] = Hard_ai
+    session[:ai] = Hard_ai.new
 else
     session[:ai] = "no ai"
 end
 players_name = players_name.to_s
 
-redirect "/game?players_name=" + players_name + "&diff=" + diff + "&num_of_players=" + num_of_players
+redirect "/game?"
 
 end
 
@@ -74,13 +75,26 @@ end
 # end
 
 get "/game" do
+    message = params[:message]
     
-    session[:num_of_players] = params[:num_of_players]
-    session[:players_name] = params[:players_name]
-    erb :game, locals:{num_play:session[:num_of_players],players_name:session[:players_name]}
+        if message == nil
+            message = ""
+        end
+    erb :game, locals:{message:message,num_play:session[:num_of_players],players_name:session[:players_name]}
 end
 
 post "/game" do
-   info = params[:info]
-    info
+   choice = params[:choice]
+   p choice
+   ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players])
+        if ret == "WINNER"
+            message = "WINNER #{session[:player].player}"
+        elsif ret == "TIE"
+            message = "TIE"
+        else
+            message = ""
+        end
+    session[:player].change_players
+    redirect "/game?message=" + message
+
 end

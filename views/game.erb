@@ -1,55 +1,44 @@
 Tic Tac Toe<br>
 
 <%board = session[:board].game_board%>
+    <div id = "message">
+    <%=message%>
+    </div>
+<div id = "big_box">
 
-<div id = "box" onclick = "update_board(9)">
-<%=board[:"9"]%>
+    <%count = 1%>
+    <%9.times do%>
+        <%if board["#{count}"] == "#{count}"%>
+            <div id =<%="box_" + "#{count}"%>>
+            <%=board["#{count}"]%>
+            </div>
+        <%else%>
+            <div id = <%="box_" + "#{count}"%> class = <%=board["#{count}"]%>>
+                <div id = "hidden">
+                <%=board["#{count}"]%>
+                </div>
+            </div>
+        <%end%>
+        <%count += 1%>
+    <%end%>
 </div>
 
-<div id = "box" onclick = "update_board(8)">
-<%=board[:"8"]%>
-</div>
+<div id = "key_box">
+<form id="form_id" method = "post" action = "game">
 
-<div id = "box" onclick = "update_board(7)">
-<%=board[:"7"]%>
-</div>
-
-<div id = "box" onclick = "update_board(6)">
-<%=board[:"6"]%>
-</div>
-
-<div id = "box" onclick = "update_board(5)">
-<%=board[:"5"]%>
-</div>
-
-<div id = "box" onclick = "update_board(4)">
-<%=board[:"4"]%>
-</div>
-
-<div id = "box" onclick = "update_board(3)">
-<%=board[:"3"]%>
-</div>
-
-<div id = "box" onclick = "update_board(2)">
-<%=board[:"2"]%>
-</div>
-
-<div id = "box" onclick = "update_board(1)">
-<%=board[:"1"]%>
-</div>
-
-<form id="form_id" method = "post" action "game">
-<p id = "form_here"> </p>
+<%count = 1%>
+<%9.times do%>
+    <%if board["#{count}"] == "#{count}"%>
+        <button name = "choice" type = "submit" value = "<%=count%>"><%=count%></button>
+    <%else%>
+        <button></button>
+    <%end%>
+    <%if count%3 == 0%>
+    <br>
+    <%end%>
+    <%count += 1%>
+<%end%>
 </form>
+<div>
 
-<script>
-function update_board(num){
-    var update = createElement("input");
-    update.name = "info";
-    update.type = "text";
-    update.value = num;
-    getElementById("form_here").appendChild(update).value
-    getElementById("form_id").submit()
-}
-</script
 
