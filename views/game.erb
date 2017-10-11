@@ -7,20 +7,33 @@ Tic Tac Toe<br>
 <div id = "big_box">
 
     <%count = 1%>
-    <%9.times do%>
-        <%if board["#{count}"] == "#{count}"%>
-            <div id =<%="box_" + "#{count}"%>>
-            <%=board["#{count}"]%>
-            </div>
-        <%else%>
-            <div id = <%="box_" + "#{count}"%> class = <%=board["#{count}"]%>>
-                <div id = "hidden">
-                <%=board["#{count}"]%>
-                </div>
-            </div>
+    <table id = "board">
+    <%3.times do%>
+            <tr>
+        <%3.times do%>
+            <td>
+                <%if board["#{count}"] == "#{count}"%>
+                    <div id =<%="box_" + "#{count}"%>>
+                    <%=board["#{count}"]%>
+                    </div>
+            
+            <%else%>
+        
+                    <div id = <%="box_" + "#{count}"%> class = <%=board["#{count}"]%>>
+                        <div id = "hidden">
+                        <%=board["#{count}"]%>
+                        </div>
+                    </div>
+                
+            <%end%>
+            </td>
+            <% if count%3 == 0%>
+            </tr>
+            <%end%>
+            <%count += 1%>
         <%end%>
-        <%count += 1%>
     <%end%>
+    </table>
 </div>
 
 <div id = "key_box">
@@ -31,7 +44,7 @@ Tic Tac Toe<br>
     <%if board["#{count}"] == "#{count}"%>
         <button name = "choice" type = "submit" value = "<%=count%>"><%=count%></button>
     <%else%>
-        <button></button>
+        <%=count%>
     <%end%>
     <%if count%3 == 0%>
     <br>

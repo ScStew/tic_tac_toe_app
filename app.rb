@@ -86,7 +86,17 @@ end
 post "/game" do
    choice = params[:choice]
    p choice
-   ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players])
+    if session[:num_of_players] == 2
+        ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players])
+            if ret == "WINNER"
+                message = "WINNER #{session[:player].player}"
+            elsif ret == "TIE"
+                message = "TIE"
+            else
+                message = ""
+            end
+    else
+        ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players])
         if ret == "WINNER"
             message = "WINNER #{session[:player].player}"
         elsif ret == "TIE"
@@ -94,6 +104,17 @@ post "/game" do
         else
             message = ""
         end
+        session[:player].change_players
+        ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players])
+        if ret == "WINNER"
+            message = "WINNER #{session[:player].player}"
+        elsif ret == "TIE"
+            message = "TIE"
+        else
+            message = ""
+        end
+    end
+
     session[:player].change_players
     redirect "/game?message=" + message
 

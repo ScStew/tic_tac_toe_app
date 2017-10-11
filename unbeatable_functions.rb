@@ -144,16 +144,25 @@ def fourth_action(board,player)
         choice = "1"
         # p "outcome 2"
     elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == false
-         choice = "2"
+        choice = "2"
         #  p "outcome 3"
     elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 1 && player_arr.include?("5") == true
         choice = "1"
         # p "outcome 4"
+    elsif player_arr.include?("5") == true && player_arr?("4") == true && board.values.include?("1") == false && board.values.include?("7")
+        choice = "2"
     elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 0 && board.values.include?("5") == true || player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 1 && board.values.include?("5") == true
         choice = "5"
         # p "outcome 5"
     elsif player_arr[0].to_i % 2 == 1 && player_arr[1].to_i % 2 == 0 && board.values.include?("5") == false || player_arr[0].to_i % 2 == 0 && player_arr[1].to_i % 2 == 1 && board.values.include?("5") == false
+       bad = ""
+        until bad == "good" do
         choice = ["1","3","7","9"].sample
+            if board[choice] == choice
+                bad = "good"
+            end
+        end
+
     end
 end
 
