@@ -10,12 +10,12 @@ How many Players?
 
 <script>
 function one_player(){
-    var x, input, text, submit;
+    var x, input, text, submit, brek;
     submit = document.createElement("input");
     submit.type = "submit";
     submit.value = "enter";
     x = document.getElementById("inputs").innerHTML = "Enter Player's Name<br>";
-   text = document.createTextNode("difficulty")
+   text = document.createTextNode("difficulty");
    input = document.createElement("input");
    input.type = "text";
    input.name = "players_name[]";
@@ -30,9 +30,27 @@ function one_player(){
             input.name = "ai_diff";
             input.value = count;
             input.id = "radio_button";
-            input.checked = "checked"
+            input.checked = "checked";
             document.getElementById("inputs").appendChild(input).value;
             document.getElementById("inputs").appendChild(text).value;
+        };
+        brek = document.createElement('br');
+        document.getElementById("inputs").appendChild(brek).value
+        text = [];
+        text.push(document.createTextNode("First"));
+        text.push(document.createTextNode("Second"));
+        for(count = 0; count <= 1;count ++){
+            input = document.createElement('input');
+            input.type = "radio";
+            input.name = "first";
+            if(count == 0){
+                input.value = 'first';}
+            else{
+                input.value = 'second';
+            }
+            input.checked = 'checked';
+            document.getElementById("inputs").appendChild(text[count]).value;
+            document.getElementById("inputs").appendChild(input).value;
         }
     document.getElementById("inputs").appendChild(submit).value;
 }

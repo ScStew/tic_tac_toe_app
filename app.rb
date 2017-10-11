@@ -27,6 +27,7 @@ get "/players" do
 end
 
 post "/setup" do
+session[:first] = params[:first]
 session[:players_name] = params[:players_name]
 diff = params[:ai_diff]
 if session[:players_name].length == 1
@@ -80,13 +81,24 @@ get "/game" do
         if message == nil
             message = ""
         end
-    erb :game, locals:{message:message,num_play:session[:num_of_players],players_name:session[:players_name]}
+        p "#{session[:first]} heres first"
+        if session[:first] == "second"
+            session[:order] = ["x","ai", 'o','player']
+            choice =''
+            game(choice,session[:board],session[:player],session[:ai],session[:num_of_players],session[:order])
+        else
+            session[:order] = ['x',"player",'o', 'ai']
+        end
+        session[:player].change_players
+
+
+    erb :game, locals:{message:message,num_play:session[:num_of_players],players_name:session[:players_name],first:session[:first]}
 end
 
 post "/game" do
    choice = params[:choice]
-    if session[:num_of_players] == 2
-        ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players])
+    if session[:num_of_players] == 2 || session[:order][1] == "ai"
+        ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players],session[:order])
             if ret == "WINNER"
                 message = "WINNER #{session[:player].player}"
             elsif ret == "TIE"
@@ -95,7 +107,7 @@ post "/game" do
                 message = ""
             end
     else
-        ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players])
+        ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players],session[:order])
         if ret == "WINNER"
             message = "WINNER #{session[:player].player}"
         elsif ret == "TIE"
@@ -104,7 +116,7 @@ post "/game" do
             message = ""
         end
         session[:player].change_players
-        ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players])
+        ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players],session[:order])
         if ret == "WINNER"
             message = "WINNER #{session[:player].player}"
         elsif ret == "TIE"
