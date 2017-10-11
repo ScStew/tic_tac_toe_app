@@ -85,7 +85,6 @@ end
 
 post "/game" do
    choice = params[:choice]
-   p choice
     if session[:num_of_players] == 2
         ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players])
             if ret == "WINNER"

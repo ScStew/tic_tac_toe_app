@@ -29,6 +29,7 @@ def game(choice,board_class,player_class,ai,num_of_players)
                 end
             end
         # end
+        p choice
     ret
 end
         

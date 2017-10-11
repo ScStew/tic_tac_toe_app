@@ -20,13 +20,20 @@ class Hard_ai
                         @counter += 1
                         choice = first_move(board)
                     elsif @counter == 2
+                        p "made here before"
                         @counter += 1
                         choice = second_move(board,player)
                     else
+                        p "made it here"
                         @counter += 1
                         choice = third_move(board,player)
                     end
+                else
+                    @counter += 1
                 end
+            else
+                @counter += 1
+            
             end 
         choice
     end
