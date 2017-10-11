@@ -40,7 +40,7 @@ elsif diff == "2"
 elsif diff == "3"
     session[:ai] = Hard_ai
 else
-    diff = "no ai"
+    session[:ai] = "no ai"
 end
 players_name = players_name.to_s
 
@@ -74,8 +74,13 @@ end
 # end
 
 get "/game" do
-    diff = params[:diff]
-    num_of_players = params[:num_of_players]
-    players_name = params[:players_name]
-    erb :game, locals:{num_play:num_of_players,players_name:players_name,diff:diff}
+    
+    session[:num_of_players] = params[:num_of_players]
+    session[:players_name] = params[:players_name]
+    erb :game, locals:{num_play:session[:num_of_players],players_name:session[:players_name]}
+end
+
+post "/game" do
+   info = params[:info]
+    info
 end

@@ -1,10 +1,55 @@
 Tic Tac Toe<br>
 
 <%board = session[:board].game_board%>
-<%=board["7"]%>|<%=board["8"]%>|<%=board["9"]%><br>
-- - -<br>
-<%=board["4"]%>|<%=board["5"]%>|<%=board["6"]%><br>
-- - -<br>
-<%=board["1"]%>|<%=board["2"]%>|<%=board["3"]%><br>
 
+<div id = "box" onclick = "update_board(9)">
+<%=board[:"9"]%>
+</div>
+
+<div id = "box" onclick = "update_board(8)">
+<%=board[:"8"]%>
+</div>
+
+<div id = "box" onclick = "update_board(7)">
+<%=board[:"7"]%>
+</div>
+
+<div id = "box" onclick = "update_board(6)">
+<%=board[:"6"]%>
+</div>
+
+<div id = "box" onclick = "update_board(5)">
+<%=board[:"5"]%>
+</div>
+
+<div id = "box" onclick = "update_board(4)">
+<%=board[:"4"]%>
+</div>
+
+<div id = "box" onclick = "update_board(3)">
+<%=board[:"3"]%>
+</div>
+
+<div id = "box" onclick = "update_board(2)">
+<%=board[:"2"]%>
+</div>
+
+<div id = "box" onclick = "update_board(1)">
+<%=board[:"1"]%>
+</div>
+
+<form id="form_id" method = "post" action "game">
+<p id = "form_here"> </p>
+</form>
+
+<script>
+function update_board(num){
+    var update = createElement("input");
+    update.name = "info";
+    update.type = "text";
+    update.value = num;
+    getElementById("form_here").appendChild(update).value
+    getElementById("form_id").submit()
+}
+</script
 
