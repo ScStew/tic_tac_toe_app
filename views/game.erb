@@ -38,7 +38,7 @@ Tic Tac Toe<br>
 
 <div id = "key_box">
 <form id="form_id" method = "post" action = "game">
-
+    <input type = "hidden" name = "message" value =  '<%=message%>'>
 <%count = 1%>
 <%9.times do%>
     <%if board["#{count}"] == "#{count}"%>
@@ -53,5 +53,6 @@ Tic Tac Toe<br>
 <%end%>
 </form>
 <div>
+
 
 
