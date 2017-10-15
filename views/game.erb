@@ -1,9 +1,15 @@
-Tic Tac Toe<br>
+
 
 <%board = session[:board].game_board%>
-    <div id = "message">
+<%if message == "TIE"%>
+    <div id = "message_1">
     <%=message%>
     </div>
+<%else%>
+    <div id = "message_2">
+        <%=message%>
+    </div>
+<%end%>
 <div id = "big_box">
 
     <%count = 1%>
