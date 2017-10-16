@@ -3,8 +3,10 @@ require_relative "ai.rb"
 require_relative "player.rb"
 require_relative "board.rb"
 require_relative "game.rb"
-require "pg"
+require_relative "db.rb"
 enable :sessions
+load './local_env.rb' if File.exist?('./local_env.rb')
+
 
 
 get "/" do
@@ -133,7 +135,7 @@ post "/game" do
         if session[:players_name].length == 1
             session[:players_name] << "computer"
         end
-        p "#{session[:players_name][0]}" +"," + " #{session[:players_name][1]}" + "," + "#{message}"
+        winner_card(session[:players_name],session[:message])
     end
     redirect "/game?message=" + message
 end
