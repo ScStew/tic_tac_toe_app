@@ -135,7 +135,7 @@ post "/game" do
         if session[:players_name].length == 1
             session[:players_name] << "computer"
         end
-        winner_card(session[:players_name],session[:message])
+        winner_card(session[:players_name],message)
     end
     redirect "/game?message=" + message
 end
