@@ -10,6 +10,7 @@ load './local_env.rb' if File.exist?('./local_env.rb')
 
 
 get "/" do
+    session[:count] = 0
     session[:board]= Board.new
     session[:player] = Player.new 
     session[:player].player = "x"  
@@ -132,7 +133,9 @@ post "/game" do
             end
         end
     end
-    if message != ""
+    if message != "" && session[:count] == 0
+        session[:count] += 1
+
         if session[:players_name].length == 1
             session[:players_name] << "computer"
         end
