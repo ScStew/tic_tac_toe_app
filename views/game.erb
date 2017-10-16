@@ -58,8 +58,24 @@
     <%count += 1%>
 <%end%>
 </form>
-<div>
+</div>
 
+
+<div id = "outcome">
+<table>
+<th>Player 1</th>
+<th>Player 2</th>
+<th>outcome</th>
+<th>Date</th>
+<%outcome.each do |set|%>
+<tr id = "row">
+    <%set.each do |item|%>
+    <td id = "item"><%=item%></td>
+    <%end%>
+</tr>
+<%end%>
+</table>
+<div>
 
 <script src = "/js/functions.js">
 

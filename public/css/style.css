@@ -178,3 +178,22 @@ footer{
 		margin-left:25%;
 		margin-right:25%;
 }
+
+#outcome{
+	right: 0;
+    background-color: orangered;
+    position: absolute;
+    top: 54vh;
+    border-radius: 1vh;
+    border-style: ridge;
+    border-color: saddlebrown;
+    border-width: thick;
+    overflow-y: scroll;
+    max-width: 460px;
+    max-height: 300px;
+}
+
+#item{
+	border-style: solid;
+}
+

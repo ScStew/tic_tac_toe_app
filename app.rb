@@ -96,8 +96,9 @@ get "/game" do
             session[:order] = ['x','player','o', 'player']
         end
     end
+    outcome = pull_table()
 
-    erb :game, locals:{message:message,num_play:session[:num_of_players],players_name:session[:players_name],first:session[:first]}
+    erb :game, locals:{message:message,num_play:session[:num_of_players],players_name:session[:players_name],first:session[:first],outcome:outcome}
 end
 
 post "/game" do
@@ -139,3 +140,4 @@ post "/game" do
     end
     redirect "/game?message=" + message
 end
+
