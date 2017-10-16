@@ -1,3 +1,4 @@
+<form id="form_id" method = "post" action = "game">
 
 
 <%board = session[:board].game_board%>
@@ -17,9 +18,9 @@
     <%3.times do%>
             <tr>
         <%3.times do%>
-            <td>
+            <td type = "submit" name = "choice" value = '<%="#{count}"%>'>
                 <%if board["#{count}"] == "#{count}"%>
-                    <div id =<%="box_" + "#{count}"%>>
+                    <div id =<%="box_" + "#{count}"%> type = "button" name = "choice" value = '<%="#{count}"%>' onclick = "update(<%='#{count}'%>)">
                     <%=board["#{count}"]%>
                     </div>
             
@@ -43,7 +44,6 @@
 </div>
 
 <div id = "key_box">
-<form id="form_id" method = "post" action = "game">
     <input type = "hidden" name = "message" value =  '<%=message%>'>
 <%count = 1%>
 <%9.times do%>
@@ -61,4 +61,7 @@
 <div>
 
 
+<script src = "/js/functions.js">
+
+</sctipt>
 

@@ -3,6 +3,7 @@ require_relative "ai.rb"
 require_relative "player.rb"
 require_relative "board.rb"
 require_relative "game.rb"
+require "pg"
 enable :sessions
 
 
@@ -127,6 +128,12 @@ post "/game" do
                 end
             end
         end
+    end
+    if message != ""
+        if session[:players_name].length == 1
+            session[:players_name] << "computer"
+        end
+        p "#{session[:players_name][0]}" +"," + " #{session[:players_name][1]}" + "," + "#{message}"
     end
     redirect "/game?message=" + message
 end

@@ -64,3 +64,19 @@ function two_player() {
     document.getElementById("inputs").appendChild(input2).value;
     document.getElementById("inputs").appendChild(submit).value;
 }
+
+function music(){
+    var s = new Audio("/music/music.mp3");
+    s.play();
+}
+
+function update(num){
+    var num = num;
+  var x = document.getElementById("form_id");
+  var input = document.createElement('input');
+  input.type = "hidden";
+  input.name = "choice";
+  input.value = num;
+  x.appendChild('input');
+  document.forms["form_id"].submit();
+}
