@@ -33,17 +33,17 @@ end
 post "/setup" do
 session[:first] = params[:first]
 session[:players_name] = params[:players_name]
-diff = params[:ai_diff]
+session[:diff] = params[:ai_diff]
 if session[:players_name].length == 1
     session[:num_of_players] = "1"
 else
     session[:num_of_players] = "2"
 end
-if diff == "1"
+if session[:diff] == "1"
     session[:ai] = Random_ai.new
-elsif diff == "2"
+elsif session[:diff] == "2"
     session[:ai] = Sequence_ai.new
-elsif diff == "3"
+elsif session[:diff] == "3"
     session[:ai] = Hard_ai.new
 else
     session[:ai] = "no ai"
@@ -142,5 +142,24 @@ post "/game" do
         winner_card(session[:players_name],message)
     end
     redirect "/game?message=" + message
+end
+
+
+post "/play_again" do
+    session[:count] = 0
+    session[:board]= Board.new
+    session[:player] = Player.new 
+    session[:player].player = "x" 
+    if session[:diff] == "1"
+        session[:ai] = Random_ai.new
+    elsif session[:diff] == "2"
+        session[:ai] = Sequence_ai.new
+    elsif session[:diff] == "3"
+        session[:ai] = Hard_ai.new
+    else
+        session[:ai] = "no ai"
+    end
+    redirect "/game?"
+    
 end
 

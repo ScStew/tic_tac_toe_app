@@ -1,14 +1,19 @@
-<form id="form_id" method = "post" action = "game">
 
 
 <%board = session[:board].game_board%>
 <%if message == "TIE"%>
     <div id = "message_1">
-    <%=message%>
+        <%=message%>
+        <form method = "post" action = "play_again">
+        <input type = "submit" value = "play again?">
+        </form>
     </div>
 <%else%>
     <div id = "message_2">
         <%=message%>
+        <form method = "post" action = "play_again">
+        <input type = "submit" value = "play again?">
+        </form>
     </div>
 <%end%>
 <div id = "big_box">
@@ -44,6 +49,7 @@
 </div>
 
 <div id = "key_box">
+<form id="form_id" method = "post" action = "game">
     <input type = "hidden" name = "message" value =  '<%=message%>'>
 <%count = 1%>
 <%9.times do%>
