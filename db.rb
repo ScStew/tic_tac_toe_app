@@ -13,7 +13,7 @@ def winner_card(players,message)
     }
     db = PG::Connection.new(db_params)
 
-    # db.exec("UPDATE winning_card SET player_1 = '#{players[0]}',player_2 = '#{players[1]}', outcome = '#{message}'")
+    db.exec("UPDATE winning_card SET player_1 = '#{players[0]}',player_2 = '#{players[1]}', outcome = '#{message}'")
   
 end
 

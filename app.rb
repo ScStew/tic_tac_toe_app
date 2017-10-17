@@ -109,8 +109,10 @@ post "/game" do
 
         if session[:num_of_players] == "2"
             ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players],session[:order])
+            p "#{ret} ret is here"
             if ret == "WINNER"
-                message = "WINNER #{who_won(session[:num_of_players],session[:players_name],session[:player].player,session[:order])}"
+                message = "WINNER"
+                # message = "WINNER #{who_won(session[:num_of_players],session[:players_name],session[:player].player,session[:order])}"
             elsif ret == "TIE"
                 message = "TIE"
             else
@@ -159,7 +161,8 @@ post "/play_again" do
     else
         session[:ai] = "no ai"
     end
-    redirect "/game?"
+    message = ""
+    redirect "/game?message=" + message
     
 end
 

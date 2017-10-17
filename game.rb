@@ -6,9 +6,9 @@ def game(choice,board_class,player_class,ai,num_of_players,order)
         player_order = {order[0] => order[1],order[2] => order[3]}
         gboard = board_class.game_board
         player = player_class.player
-            if player_order[player] == 'player'
-                board_class.update(player,choice)
-            elsif player_order[player] == "ai"
+            if player_order[player_class.player] == 'player'
+                board_class.update(player_class.player,choice)
+            elsif player_order[player_class.player] == "ai"
                 choice = ai.move(gboard,player)
                 board_class.update(player,choice)
             end
