@@ -1,5 +1,7 @@
 function one_player(){
-    var x, input, text, submit, brek;
+    var x, input, text, submit, brek, brek1;
+    brek = document.createElement('br');
+    brek1 = document.createElement('br');
     submit = document.createElement("input");
     submit.type = "submit";
     submit.value = "enter";
@@ -8,9 +10,11 @@ function one_player(){
    input = document.createElement("input");
    input.type = "text";
    input.name = "players_name[]";
+   input.id = "input"
    input.required = true;
    input.placeholder = "Enter Name Here";
    document.getElementById("inputs").appendChild(input).value;
+   document.getElementById("inputs").appendChild(brek1).value;
    document.getElementById("inputs").appendChild(text).value;
         for(var count = 1; count <= 3; count ++) {
             text = document.createTextNode(""+ count +"")
@@ -23,8 +27,7 @@ function one_player(){
             document.getElementById("inputs").appendChild(input).value;
             document.getElementById("inputs").appendChild(text).value;
         };
-        brek = document.createElement('br');
-        document.getElementById("inputs").appendChild(brek).value
+        document.getElementById("inputs").appendChild(brek).value;
         text = [];
         text.push(document.createTextNode("First"));
         text.push(document.createTextNode("Second"));
@@ -51,11 +54,13 @@ function two_player() {
     input.name = "players_name[]";
     input.required = true;
     input.placeholder = "Player 1";
+    input.id = "input"
     input2 = document.createElement("input");
     input2.type = "text";
     input2.name = "players_name[]";
     input2.required = true;
     input2.placeholder = "Player 2";
+    input2.id = "input"
     x = document.getElementById("inputs").innerHTML = "Enter Each players name<br>";
     submit = document.createElement("input");
     submit.type = "submit";

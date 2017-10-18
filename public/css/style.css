@@ -1,3 +1,5 @@
+
+
 header{
 	font-size:12vh;
 	color:rgb(0, 0, 0);
@@ -38,7 +40,7 @@ body{
     min-height: min-content;
 	max-height: max-content;
 	align-self: center;
-
+	
 	
 	
 }
@@ -137,7 +139,7 @@ body{
     position: absolute;
     left: 36%;
     top: 29%;
-
+	
 }
 
 .x{
@@ -163,37 +165,73 @@ body{
 }
 
 footer{
-		font-size:1vh;
-		color:black;
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		padding: 1rem;
-		background-color: #efefef;
-		text-align: center;
-		border-style: double;
+	font-size:1vh;
+	color:black;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	background-color: #efefef;
+	text-align: center;
+	border-style: double;
 		border-width:1vh;
 		border-radius:1vh;
 		margin-left:25%;
 		margin-right:25%;
-}
+	}
+	
+	#outcome{
+		right: 0;
+		background-color: orangered;
+		position: absolute;
+		top: 54vh;
+		border-radius: 1vh;
+		border-style: ridge;
+		border-color: saddlebrown;
+		border-width: thick;
+		overflow-y: scroll;
+		max-width: 460px;
+		max-height: 300px;
+	}
+	
+	#item{
+		border-style: solid;
+	}
 
-#outcome{
-	right: 0;
-    background-color: orangered;
-    position: absolute;
-    top: 54vh;
-    border-radius: 1vh;
-    border-style: ridge;
-    border-color: saddlebrown;
-    border-width: thick;
-    overflow-y: scroll;
-    max-width: 460px;
-    max-height: 300px;
-}
+	#input_fp{
+		border-style:dotted;
+		border-radius:1vh;
+		padding-right:12vw;
+		padding-left:12vw;
+		background-color:blue;
+		border-color:orange;
+	}
+	
+	#input_buttons{
+		border-style:groove;
+		border-radius:100%;
+		border-color:orange;
+		font-size:3vw;
+		background-color:lightseagreen;
+	}
 
-#item{
-	border-style: solid;
-}
+	#input{
+		padding:1vh;
+		border-radius:2vh;
+		border-style:double;
+		border-color:orange;
+		text-align:center;
+		padding:1vh;
+		background-color:lightseagreen;
+		margin-left:1vh;
 
+	}
+
+	#back_box{
+		background-color: rgba(24, 230, 144, 0.404);
+		border-style: ridge;
+		border-radius: 10vh;
+		min-height: 75vh;
+		border-color: orange;
+	}
