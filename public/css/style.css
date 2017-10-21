@@ -134,7 +134,7 @@ body{
 
 
 #message_2{
-	font-size: 5vh;
+	font-size: 5gitvh;
     color: blue;
     text-align: center;
     background-color: rgba(24, 230, 144, 0.504);
@@ -253,7 +253,10 @@ footer{
 		border-radius: 10vh;
 		border-style: ridge;
 		border-color: orange;
-		min-height: 50%;;
+		min-height: 50%;
+		margin-left: 5vh;
+		margin-right: 5vh;
+		padding-top: 9vh;
 	}
 	
 	#sub{
