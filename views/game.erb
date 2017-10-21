@@ -55,18 +55,7 @@
 
 <div id = "key_box">
     <input type = "hidden" name = "message" value =  '<%=message%>'>
-<%count = 1%>
-<%9.times do%>
-    <%if board["#{count}"] == "#{count}"%>
-        <button id = 'buttons' name = "choice" type = "submit" value = "<%=count%>"><%=count%></button>
-    <%else%>
-        <%=count%>
-    <%end%>
-    <%if count%3 == 0%>
-    <br>
-    <%end%>
-    <%count += 1%>
-<%end%>
+
 </form>
 </div>
 
