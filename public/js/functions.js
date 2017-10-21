@@ -5,6 +5,7 @@ function one_player(){
     submit = document.createElement("input");
     submit.type = "submit";
     submit.value = "enter";
+    submit.id = "sub";
     x = document.getElementById("inputs").innerHTML = "Enter Player's Name<br>";
    text = document.createTextNode("difficulty");
    input = document.createElement("input");
@@ -48,7 +49,8 @@ function one_player(){
 }
 
 function two_player() {
-    var x, input, input2, submit;
+    var x, input, input2, submit,brek;
+    brek = document.createElement('br');
     input = document.createElement("input");
     input.type = "text";
     input.name = "players_name[]";
@@ -65,8 +67,10 @@ function two_player() {
     submit = document.createElement("input");
     submit.type = "submit";
     submit.value = "enter";
+    submit.id = "sub"
     document.getElementById("inputs").appendChild(input).value;
     document.getElementById("inputs").appendChild(input2).value;
+    document.getElementById("inputs").appendChild(brek).value;
     document.getElementById("inputs").appendChild(submit).value;
 }
 
