@@ -34,8 +34,6 @@ body{
 	padding-right:10%;
 	padding-top:1vh;
 	border-radius:3vh;
-	margin-left: 31%;
-	margin-right: 31%;
 	min-width: min-content;
     min-height: min-content;
 	max-height: max-content;
@@ -271,6 +269,7 @@ footer{
 
 	#bigger_box{
 		background-color:white;
+		align-content: center;
 	}
 	
 	
