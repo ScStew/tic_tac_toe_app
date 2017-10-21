@@ -1,24 +1,25 @@
 
 
 <%board = session[:board].game_board%>
-<%if message == "TIE"%>
-    <div id = "message_1">
-        <%=message%>
-        <form method = "post" action = "play_again">
-        <input type = "submit" value = "play again?">
-        </form>
-    </div>
-<%elsif message == ""%>
 
-<%else%>
-    <div id = "message_2">
-        <%=message%>
-        <form method = "post" action = "play_again">
-        <input type = "submit" value = "play again?">
-        </form>
-    </div>
-<%end%>
 <div id = "bigger_box">
+    <%if message == "TIE"%>
+        <div id = "message_1">
+            <%=message%>
+            <form method = "post" action = "play_again">
+            <input type = "submit" value = "play again?">
+            </form>
+        </div>
+    <%elsif message == ""%>
+
+    <%else%>
+        <div id = "message_2">
+            <%=message%>
+            <form method = "post" action = "play_again">
+            <input type = "submit" value = "play again?">
+            </form>
+        </div>
+    <%end%>
     <div id = "big_box">
     <form id="form_id" method = "post" action = "game">
 
@@ -53,11 +54,9 @@
     </div>
 </div>
 
-<div id = "key_box">
     <input type = "hidden" name = "message" value =  '<%=message%>'>
 
 </form>
-</div>
 
 
 <div id = "outcome">

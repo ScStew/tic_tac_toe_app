@@ -86,7 +86,7 @@ get "/game" do
         if message == nil
             message = ""
         end
-        p "#{session[:first]} session first here"
+        # p "#{session[:first]} session first here"
         if session[:first] == "second"
             session[:order] = ["x","ai", 'o','player']
             if session[:once] == 0
@@ -111,7 +111,7 @@ post "/game" do
 
         if session[:num_of_players] == "2"
             ret = game(choice,session[:board],session[:player],session[:ai],session[:num_of_players],session[:order])
-            p "#{ret} ret is here"
+            # p "#{ret} ret is here"
             if ret == "WINNER"
                 message = "WINNER"
                 # message = "WINNER #{who_won(session[:num_of_players],session[:players_name],session[:player].player,session[:order])}"
