@@ -49,7 +49,7 @@ else
     session[:ai] = "no ai"
 end
 
-
+session[:once] = 0
 redirect "/game?"
 
 end
@@ -81,22 +81,24 @@ end
 
 get "/game" do
     message = params[:message]
-    if message == nil
+
     
         if message == nil
             message = ""
         end
-        
+        p "#{session[:first]} session first here"
         if session[:first] == "second"
             session[:order] = ["x","ai", 'o','player']
-            game("",session[:board],session[:player],session[:ai],session[:num_of_players],session[:order])
-            session[:player].change_players
+            if session[:once] == 0
+                game("",session[:board],session[:player],session[:ai],session[:num_of_players],session[:order])
+                session[:once] += 1
+                session[:player].change_players
+            end
         elsif session[:first] == 'first'
             session[:order] = ['x',"player",'o', 'ai']
         else
             session[:order] = ['x','player','o', 'player']
         end
-    end
     outcome = pull_table()
 
     erb :game, locals:{message:message,num_play:session[:num_of_players],players_name:session[:players_name],first:session[:first],outcome:outcome}
@@ -161,6 +163,7 @@ post "/play_again" do
     else
         session[:ai] = "no ai"
     end
+    session[:once] = 0
     message = ""
     redirect "/game?message=" + message
     
